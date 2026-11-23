@@ -1,0 +1,6 @@
+Confusion Matrix: EfficientNet-B0
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        123                  126                  102            
+Actual Neutral  :        159                  257                  178            
+Actual Positive :        130                  180                  145            

@@ -1,0 +1,109 @@
+{
+  "model_name": "MobileNetV3-Large",
+  "folder_name": "mobilenet_v3",
+  "best_epoch": 4,
+  "total_training_time_sec": 168.9,
+  "best_metrics": {
+    "model_name": "MobileNetV3-Large",
+    "accuracy": 38.21,
+    "macro_f1": 36.25,
+    "macro_precision": 36.62,
+    "macro_recall": 36.6,
+    "weighted_f1": 37.74,
+    "negative_f1": 25.08,
+    "negative_recall": 21.94,
+    "neutral_f1": 42.89,
+    "neutral_recall": 41.92,
+    "positive_f1": 40.78,
+    "positive_recall": 45.93,
+    "train_time_sec": 168.79,
+    "latency_ms_per_sample": 3.359,
+    "confusion_matrix": [
+      [
+        77,
+        143,
+        131
+      ],
+      [
+        115,
+        249,
+        230
+      ],
+      [
+        71,
+        175,
+        209
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1021,
+      "val_loss": 1.0962,
+      "val_accuracy": 37.86,
+      "val_macro_f1": 35.3,
+      "val_macro_precision": 36.2,
+      "val_macro_recall": 35.64,
+      "val_weighted_f1": 37.07,
+      "val_negative_f1": 27.86,
+      "val_neutral_f1": 47.58,
+      "val_positive_f1": 30.46,
+      "epoch_train_time_sec": 40.72
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0899,
+      "val_loss": 1.0972,
+      "val_accuracy": 35.21,
+      "val_macro_f1": 35.21,
+      "val_macro_precision": 37.34,
+      "val_macro_recall": 37.06,
+      "val_weighted_f1": 35.18,
+      "val_negative_f1": 35.43,
+      "val_neutral_f1": 35.06,
+      "val_positive_f1": 35.13,
+      "epoch_train_time_sec": 36.2
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0752,
+      "val_loss": 1.0988,
+      "val_accuracy": 36.86,
+      "val_macro_f1": 36.11,
+      "val_macro_precision": 36.19,
+      "val_macro_recall": 36.49,
+      "val_weighted_f1": 36.91,
+      "val_negative_f1": 29.16,
+      "val_neutral_f1": 39.0,
+      "val_positive_f1": 40.16,
+      "epoch_train_time_sec": 36.28
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0556,
+      "val_loss": 1.1088,
+      "val_accuracy": 38.21,
+      "val_macro_f1": 36.25,
+      "val_macro_precision": 36.62,
+      "val_macro_recall": 36.6,
+      "val_weighted_f1": 37.74,
+      "val_negative_f1": 25.08,
+      "val_neutral_f1": 42.89,
+      "val_positive_f1": 40.78,
+      "epoch_train_time_sec": 36.49
+    }
+  ],
+  "training_config": {
+    "model_name": "MobileNetV3-Large",
+    "folder_name": "mobilenet_v3",
+    "epochs": 4,
+    "batch_size": 16,
+    "learning_rate_head": 0.0001,
+    "learning_rate_backbone": 1e-05,
+    "weight_decay": 0.01,
+    "patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

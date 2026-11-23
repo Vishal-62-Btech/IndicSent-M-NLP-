@@ -1,0 +1,6 @@
+Confusion Matrix: xlm-roberta-base
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        141                  133                  77             
+Actual Neutral  :        150                  273                  171            
+Actual Positive :        103                  173                  179            

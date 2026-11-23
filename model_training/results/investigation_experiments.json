@@ -1,0 +1,134 @@
+{
+  "Condition A": {
+    "Condition": "Condition A",
+    "Description": "ResNet-50 Image-Only",
+    "Accuracy (%)": 40.57,
+    "Macro-F1 (%)": 37.14,
+    "Macro-P (%)": 38.92,
+    "Macro-R (%)": 37.81,
+    "Neg P/R/F1 (%)": "31.2 / 30.2 / 30.7",
+    "Neu P/R/F1 (%)": "44.3 / 59.9 / 51.0",
+    "Pos P/R/F1 (%)": "41.2 / 23.3 / 29.8",
+    "Pred Counts [Neg, Neu, Pos]": [
+      340,
+      803,
+      257
+    ],
+    "Confusion Matrix": [
+      [
+        106,
+        186,
+        59
+      ],
+      [
+        146,
+        356,
+        92
+      ],
+      [
+        88,
+        261,
+        106
+      ]
+    ]
+  },
+  "Condition B": {
+    "Condition": "Condition B",
+    "Description": "MuRIL Text-Only (Original Dataset Text)",
+    "Accuracy (%)": 40.86,
+    "Macro-F1 (%)": 40.69,
+    "Macro-P (%)": 40.69,
+    "Macro-R (%)": 41.43,
+    "Neg P/R/F1 (%)": "35.2 / 46.2 / 40.0",
+    "Neu P/R/F1 (%)": "47.4 / 39.2 / 42.9",
+    "Pos P/R/F1 (%)": "39.5 / 38.9 / 39.2",
+    "Pred Counts [Neg, Neu, Pos]": [
+      460,
+      492,
+      448
+    ],
+    "Confusion Matrix": [
+      [
+        162,
+        103,
+        86
+      ],
+      [
+        176,
+        233,
+        185
+      ],
+      [
+        122,
+        156,
+        177
+      ]
+    ]
+  },
+  "Condition C": {
+    "Condition": "Condition C",
+    "Description": "Multimodal Gated Fusion (Original Dataset Text)",
+    "Accuracy (%)": 37.71,
+    "Macro-F1 (%)": 37.31,
+    "Macro-P (%)": 38.13,
+    "Macro-R (%)": 38.65,
+    "Neg P/R/F1 (%)": "30.6 / 49.6 / 37.9",
+    "Neu P/R/F1 (%)": "46.2 / 37.4 / 41.3",
+    "Pos P/R/F1 (%)": "37.6 / 29.0 / 32.8",
+    "Pred Counts [Neg, Neu, Pos]": [
+      568,
+      481,
+      351
+    ],
+    "Confusion Matrix": [
+      [
+        174,
+        104,
+        73
+      ],
+      [
+        226,
+        222,
+        146
+      ],
+      [
+        168,
+        155,
+        132
+      ]
+    ]
+  },
+  "Condition E": {
+    "Condition": "Condition E",
+    "Description": "Multimodal Gated Fusion (Verified Text)",
+    "Accuracy (%)": 37.71,
+    "Macro-F1 (%)": 37.31,
+    "Macro-P (%)": 38.13,
+    "Macro-R (%)": 38.65,
+    "Neg P/R/F1 (%)": "30.6 / 49.6 / 37.9",
+    "Neu P/R/F1 (%)": "46.2 / 37.4 / 41.3",
+    "Pos P/R/F1 (%)": "37.6 / 29.0 / 32.8",
+    "Pred Counts [Neg, Neu, Pos]": [
+      568,
+      481,
+      351
+    ],
+    "Confusion Matrix": [
+      [
+        174,
+        104,
+        73
+      ],
+      [
+        226,
+        222,
+        146
+      ],
+      [
+        168,
+        155,
+        132
+      ]
+    ]
+  }
+}

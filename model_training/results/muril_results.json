@@ -1,0 +1,111 @@
+{
+  "model_name": "google/muril-base-cased",
+  "best_epoch": 4,
+  "total_training_time_sec": 267.43,
+  "best_metrics": {
+    "model_name": "MuRIL (google/muril-base-cased)",
+    "accuracy": 40.93,
+    "macro_f1": 40.75,
+    "macro_precision": 40.76,
+    "macro_recall": 41.48,
+    "weighted_f1": 41.04,
+    "negative_f1": 39.95,
+    "negative_recall": 46.15,
+    "neutral_f1": 43.05,
+    "neutral_recall": 39.39,
+    "positive_f1": 39.25,
+    "positive_recall": 38.9,
+    "train_time_sec": 266.27,
+    "latency_ms_per_sample": 1.578,
+    "confusion_matrix": [
+      [
+        162,
+        103,
+        86
+      ],
+      [
+        176,
+        234,
+        184
+      ],
+      [
+        122,
+        156,
+        177
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0985,
+      "val_loss": 1.0985,
+      "val_accuracy": 42.43,
+      "val_macro_f1": 19.86,
+      "val_macro_precision": 14.14,
+      "val_macro_recall": 33.33,
+      "val_weighted_f1": 25.28,
+      "val_negative_f1": 0.0,
+      "val_neutral_f1": 59.58,
+      "val_positive_f1": 0.0,
+      "epoch_train_time_sec": 64.09
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0984,
+      "val_loss": 1.0985,
+      "val_accuracy": 42.43,
+      "val_macro_f1": 19.86,
+      "val_macro_precision": 14.14,
+      "val_macro_recall": 33.33,
+      "val_weighted_f1": 25.28,
+      "val_negative_f1": 0.0,
+      "val_neutral_f1": 59.58,
+      "val_positive_f1": 0.0,
+      "epoch_train_time_sec": 67.35
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0966,
+      "val_loss": 1.091,
+      "val_accuracy": 43.36,
+      "val_macro_f1": 40.42,
+      "val_macro_precision": 41.67,
+      "val_macro_recall": 40.68,
+      "val_weighted_f1": 42.13,
+      "val_negative_f1": 34.15,
+      "val_neutral_f1": 52.92,
+      "val_positive_f1": 34.2,
+      "epoch_train_time_sec": 61.63
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0812,
+      "val_loss": 1.0842,
+      "val_accuracy": 40.93,
+      "val_macro_f1": 40.75,
+      "val_macro_precision": 40.76,
+      "val_macro_recall": 41.48,
+      "val_weighted_f1": 41.04,
+      "val_negative_f1": 39.95,
+      "val_neutral_f1": 43.05,
+      "val_positive_f1": 39.25,
+      "epoch_train_time_sec": 61.45
+    }
+  ],
+  "training_config": {
+    "model_name": "google/muril-base-cased",
+    "epochs": 4,
+    "batch_size_per_step": 8,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 16,
+    "learning_rate": 2e-05,
+    "max_length": 128,
+    "weight_decay": 0.01,
+    "warmup_steps": 140,
+    "total_update_steps": 1400,
+    "early_stopping_patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

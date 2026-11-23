@@ -1,0 +1,6 @@
+Confusion Matrix: MuRIL + EfficientNet-B0 (Concat Fusion)
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        117                  122                  112            
+Actual Neutral  :        157                  222                  215            
+Actual Positive :        130                  160                  165            

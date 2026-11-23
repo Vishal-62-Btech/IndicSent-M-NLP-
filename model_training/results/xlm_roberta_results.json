@@ -1,0 +1,111 @@
+{
+  "model_name": "xlm-roberta-base",
+  "best_epoch": 3,
+  "total_training_time_sec": 283.29,
+  "best_metrics": {
+    "model_name": "XLM-RoBERTa (xlm-roberta-base)",
+    "accuracy": 42.36,
+    "macro_f1": 41.66,
+    "macro_precision": 41.62,
+    "macro_recall": 41.82,
+    "weighted_f1": 42.43,
+    "negative_f1": 37.85,
+    "negative_recall": 40.17,
+    "neutral_f1": 46.55,
+    "neutral_recall": 45.96,
+    "positive_f1": 40.59,
+    "positive_recall": 39.34,
+    "train_time_sec": 212.08,
+    "latency_ms_per_sample": 1.799,
+    "confusion_matrix": [
+      [
+        141,
+        133,
+        77
+      ],
+      [
+        150,
+        273,
+        171
+      ],
+      [
+        103,
+        173,
+        179
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1023,
+      "val_loss": 1.0975,
+      "val_accuracy": 42.43,
+      "val_macro_f1": 19.86,
+      "val_macro_precision": 14.14,
+      "val_macro_recall": 33.33,
+      "val_weighted_f1": 25.28,
+      "val_negative_f1": 0.0,
+      "val_neutral_f1": 59.58,
+      "val_positive_f1": 0.0,
+      "epoch_train_time_sec": 68.15
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0949,
+      "val_loss": 1.0915,
+      "val_accuracy": 45.0,
+      "val_macro_f1": 37.42,
+      "val_macro_precision": 45.01,
+      "val_macro_recall": 39.44,
+      "val_weighted_f1": 40.6,
+      "val_negative_f1": 20.89,
+      "val_neutral_f1": 57.12,
+      "val_positive_f1": 34.24,
+      "epoch_train_time_sec": 66.11
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0665,
+      "val_loss": 1.0945,
+      "val_accuracy": 42.36,
+      "val_macro_f1": 41.66,
+      "val_macro_precision": 41.62,
+      "val_macro_recall": 41.82,
+      "val_weighted_f1": 42.43,
+      "val_negative_f1": 37.85,
+      "val_neutral_f1": 46.55,
+      "val_positive_f1": 40.59,
+      "epoch_train_time_sec": 67.17
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0388,
+      "val_loss": 1.0981,
+      "val_accuracy": 42.21,
+      "val_macro_f1": 41.35,
+      "val_macro_precision": 41.32,
+      "val_macro_recall": 41.48,
+      "val_weighted_f1": 42.27,
+      "val_negative_f1": 35.18,
+      "val_neutral_f1": 45.94,
+      "val_positive_f1": 42.95,
+      "epoch_train_time_sec": 67.12
+    }
+  ],
+  "training_config": {
+    "model_name": "xlm-roberta-base",
+    "epochs": 4,
+    "batch_size_per_step": 8,
+    "grad_accum_steps": 2,
+    "effective_batch_size": 16,
+    "learning_rate": 2e-05,
+    "max_length": 128,
+    "weight_decay": 0.01,
+    "warmup_steps": 140,
+    "total_update_steps": 1400,
+    "early_stopping_patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

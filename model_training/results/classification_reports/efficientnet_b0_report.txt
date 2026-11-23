@@ -1,0 +1,11 @@
+Classification Report: EfficientNet-B0
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    29.85%          35.04%       32.24%          351
+Neutral     45.65%          43.27%       44.43%          594
+Positive    34.12%          31.87%       32.95%          455
+----------------------------------------------------------------------
+Accuracy:        37.5%
+Macro Avg:       36.54% (P) | 36.73% (R) | 36.54% (F1)
+Weighted Avg:    37.64% (F1)
+Inference Latency: 3.582 ms / sample

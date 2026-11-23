@@ -1,0 +1,11 @@
+Classification Report: xlm-roberta-base
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    35.79%          40.17%       37.85%          351
+Neutral     47.15%          45.96%       46.55%          594
+Positive    41.92%          39.34%       40.59%          455
+----------------------------------------------------------------------
+Accuracy:        42.36%
+Macro Avg:       41.62% (P) | 41.82% (R) | 41.66% (F1)
+Weighted Avg:    42.43% (F1)
+Inference Latency: 1.799 ms / sample

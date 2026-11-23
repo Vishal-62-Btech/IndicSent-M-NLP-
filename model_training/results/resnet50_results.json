@@ -1,0 +1,109 @@
+{
+  "model_name": "ResNet-50",
+  "folder_name": "resnet50",
+  "best_epoch": 3,
+  "total_training_time_sec": 225.29,
+  "best_metrics": {
+    "model_name": "ResNet-50",
+    "accuracy": 40.43,
+    "macro_f1": 37.04,
+    "macro_precision": 38.79,
+    "macro_recall": 37.7,
+    "weighted_f1": 38.88,
+    "negative_f1": 30.64,
+    "negative_recall": 30.2,
+    "neutral_f1": 50.75,
+    "neutral_recall": 59.6,
+    "positive_f1": 29.73,
+    "positive_recall": 23.3,
+    "train_time_sec": 166.41,
+    "latency_ms_per_sample": 4.511,
+    "confusion_matrix": [
+      [
+        106,
+        186,
+        59
+      ],
+      [
+        147,
+        354,
+        93
+      ],
+      [
+        88,
+        261,
+        106
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0969,
+      "val_loss": 1.0933,
+      "val_accuracy": 35.93,
+      "val_macro_f1": 35.9,
+      "val_macro_precision": 38.26,
+      "val_macro_recall": 38.27,
+      "val_weighted_f1": 35.59,
+      "val_negative_f1": 37.15,
+      "val_neutral_f1": 33.73,
+      "val_positive_f1": 36.82,
+      "epoch_train_time_sec": 48.02
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0726,
+      "val_loss": 1.0938,
+      "val_accuracy": 36.93,
+      "val_macro_f1": 36.92,
+      "val_macro_precision": 37.66,
+      "val_macro_recall": 38.19,
+      "val_weighted_f1": 36.97,
+      "val_negative_f1": 35.79,
+      "val_neutral_f1": 36.58,
+      "val_positive_f1": 38.39,
+      "epoch_train_time_sec": 43.91
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0374,
+      "val_loss": 1.115,
+      "val_accuracy": 40.43,
+      "val_macro_f1": 37.04,
+      "val_macro_precision": 38.79,
+      "val_macro_recall": 37.7,
+      "val_weighted_f1": 38.88,
+      "val_negative_f1": 30.64,
+      "val_neutral_f1": 50.75,
+      "val_positive_f1": 29.73,
+      "epoch_train_time_sec": 54.89
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.9891,
+      "val_loss": 1.1377,
+      "val_accuracy": 36.86,
+      "val_macro_f1": 36.82,
+      "val_macro_precision": 37.66,
+      "val_macro_recall": 38.05,
+      "val_weighted_f1": 36.98,
+      "val_negative_f1": 35.94,
+      "val_neutral_f1": 37.83,
+      "val_positive_f1": 36.67,
+      "epoch_train_time_sec": 52.05
+    }
+  ],
+  "training_config": {
+    "model_name": "ResNet-50",
+    "folder_name": "resnet50",
+    "epochs": 4,
+    "batch_size": 16,
+    "learning_rate_head": 0.0001,
+    "learning_rate_backbone": 1e-05,
+    "weight_decay": 0.01,
+    "patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

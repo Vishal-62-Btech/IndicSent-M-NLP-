@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+
+# Node / Frontend
+node_modules/
+.npm/
+dist/
+dist-ssr/
+*.local
+
+# Environment & Secrets
+.env
+!.env.example
+
+# Large Model Checkpoints & Datasets (tracked via inventory and hashes)
+*.pt
+*.pth
+*.joblib
+*.bin
+*.safetensors
+dataset/
+model_training/checkpoints/
+
+# IDE & OS
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log

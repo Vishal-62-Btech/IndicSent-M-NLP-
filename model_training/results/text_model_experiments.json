@@ -1,0 +1,152 @@
+{
+  "model_name": "TF-IDF + Logistic Regression (Improved FeatureUnion)",
+  "timestamp": "2026-11-01 16:40:02",
+  "training_time_sec": 1.68,
+  "inference_latency_ms": 0.25,
+  "validation_metrics": {
+    "accuracy": 44.57142857142857,
+    "macro_f1": 42.45563621697923,
+    "negative_f1": 30.94,
+    "neutral_f1": 50.66,
+    "positive_f1": 45.77,
+    "confusion_matrix": [
+      [
+        97,
+        147,
+        107
+      ],
+      [
+        110,
+        308,
+        176
+      ],
+      [
+        69,
+        167,
+        219
+      ]
+    ]
+  },
+  "hinglish_benchmark_results": [
+    {
+      "text": "Code bina error ke run ho gaya! \ud83d\udd25",
+      "expected": "Positive",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.187,
+        "Neutral": 0.354,
+        "Positive": 0.459
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Finally assignment complete ho gaya! \ud83d\ude0d",
+      "expected": "Positive",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.153,
+        "Neutral": 0.24,
+        "Positive": 0.608
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Aaj exam bahut achha gaya!",
+      "expected": "Positive",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.202,
+        "Neutral": 0.33,
+        "Positive": 0.468
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Teacher ne bola well done beta! \ud83c\udf89",
+      "expected": "Positive",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.196,
+        "Neutral": 0.346,
+        "Positive": 0.458
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Kal exam hai.",
+      "expected": "Neutral",
+      "predicted": "Neutral",
+      "predicted_id": 1,
+      "probabilities": {
+        "Negative": 0.258,
+        "Neutral": 0.415,
+        "Positive": 0.327
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Code phir se error de raha hai \ud83d\ude2d",
+      "expected": "Negative",
+      "predicted": "Neutral",
+      "predicted_id": 1,
+      "probabilities": {
+        "Negative": 0.204,
+        "Neutral": 0.458,
+        "Positive": 0.338
+      },
+      "status": "DIFF"
+    },
+    {
+      "text": "Project successfully complete kar diya!",
+      "expected": "Positive",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.222,
+        "Neutral": 0.338,
+        "Positive": 0.44
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Mera result kharab aa gaya.",
+      "expected": "Negative",
+      "predicted": "Neutral",
+      "predicted_id": 1,
+      "probabilities": {
+        "Negative": 0.169,
+        "Neutral": 0.454,
+        "Positive": 0.376
+      },
+      "status": "DIFF"
+    },
+    {
+      "text": "Aaj kuch khaas nahi hua.",
+      "expected": "Context-dependent",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.262,
+        "Neutral": 0.251,
+        "Positive": 0.487
+      },
+      "status": "MATCH"
+    },
+    {
+      "text": "Assignment abhi tak complete nahi hua.",
+      "expected": "Negative",
+      "predicted": "Positive",
+      "predicted_id": 2,
+      "probabilities": {
+        "Negative": 0.155,
+        "Neutral": 0.384,
+        "Positive": 0.461
+      },
+      "status": "DIFF"
+    }
+  ]
+}

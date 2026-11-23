@@ -1,0 +1,112 @@
+{
+  "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+  "arch_key": "muril_efficientnet",
+  "folder_name": "muril_efficientnet",
+  "best_epoch": 4,
+  "total_training_time_sec": 187.5,
+  "best_metrics": {
+    "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+    "accuracy": 36.0,
+    "macro_f1": 35.43,
+    "macro_precision": 35.51,
+    "macro_recall": 35.66,
+    "weighted_f1": 36.25,
+    "negative_f1": 30.99,
+    "negative_recall": 33.33,
+    "neutral_f1": 40.44,
+    "neutral_recall": 37.37,
+    "positive_f1": 34.85,
+    "positive_recall": 36.26,
+    "train_time_sec": 186.0,
+    "latency_ms_per_sample": 5.271,
+    "confusion_matrix": [
+      [
+        117,
+        122,
+        112
+      ],
+      [
+        157,
+        222,
+        215
+      ],
+      [
+        130,
+        160,
+        165
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0996,
+      "val_loss": 1.1003,
+      "val_accuracy": 39.0,
+      "val_macro_f1": 31.19,
+      "val_macro_precision": 34.31,
+      "val_macro_recall": 33.86,
+      "val_weighted_f1": 34.31,
+      "val_negative_f1": 18.72,
+      "val_neutral_f1": 53.24,
+      "val_positive_f1": 21.62,
+      "epoch_train_time_sec": 39.28
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0894,
+      "val_loss": 1.1147,
+      "val_accuracy": 33.36,
+      "val_macro_f1": 28.39,
+      "val_macro_precision": 35.02,
+      "val_macro_recall": 34.29,
+      "val_weighted_f1": 27.94,
+      "val_negative_f1": 21.26,
+      "val_neutral_f1": 18.54,
+      "val_positive_f1": 45.37,
+      "epoch_train_time_sec": 37.77
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0817,
+      "val_loss": 1.1077,
+      "val_accuracy": 35.29,
+      "val_macro_f1": 34.85,
+      "val_macro_precision": 35.45,
+      "val_macro_recall": 35.49,
+      "val_weighted_f1": 35.34,
+      "val_negative_f1": 30.6,
+      "val_neutral_f1": 36.56,
+      "val_positive_f1": 37.39,
+      "epoch_train_time_sec": 37.88
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0704,
+      "val_loss": 1.1192,
+      "val_accuracy": 36.0,
+      "val_macro_f1": 35.43,
+      "val_macro_precision": 35.51,
+      "val_macro_recall": 35.66,
+      "val_weighted_f1": 36.25,
+      "val_negative_f1": 30.99,
+      "val_neutral_f1": 40.44,
+      "val_positive_f1": 34.85,
+      "epoch_train_time_sec": 37.89
+    }
+  ],
+  "training_config": {
+    "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+    "arch_key": "muril_efficientnet",
+    "text_backbone": "google/muril-base-cased",
+    "vision_backbone": "efficientnet_b0",
+    "fusion_type": "concat",
+    "epochs": 4,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

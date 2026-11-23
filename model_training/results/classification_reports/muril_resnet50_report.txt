@@ -1,0 +1,11 @@
+Classification Report: MuRIL + ResNet-50 (Concat Fusion)
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    30.69%          54.13%       39.18%          351
+Neutral     43.58%          45.12%       44.33%          594
+Positive    40.96%          14.95%       21.90%          455
+----------------------------------------------------------------------
+Accuracy:        37.57%
+Macro Avg:       38.41% (P) | 38.06% (R) | 35.14% (F1)
+Weighted Avg:    35.75% (F1)
+Inference Latency: 6.384 ms / sample

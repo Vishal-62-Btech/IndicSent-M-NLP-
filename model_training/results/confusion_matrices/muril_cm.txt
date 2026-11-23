@@ -1,0 +1,6 @@
+Confusion Matrix: google/muril-base-cased
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        162                  103                  86             
+Actual Neutral  :        176                  234                  184            
+Actual Positive :        122                  156                  177            

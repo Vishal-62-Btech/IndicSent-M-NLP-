@@ -1,0 +1,11 @@
+Classification Report: MobileNetV3-Large
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    29.28%          21.94%       25.08%          351
+Neutral     43.92%          41.92%       42.89%          594
+Positive    36.67%          45.93%       40.78%          455
+----------------------------------------------------------------------
+Accuracy:        38.21%
+Macro Avg:       36.62% (P) | 36.6% (R) | 36.25% (F1)
+Weighted Avg:    37.74% (F1)
+Inference Latency: 3.359 ms / sample

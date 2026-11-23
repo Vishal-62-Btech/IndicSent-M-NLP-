@@ -1,0 +1,6 @@
+Confusion Matrix: MuRIL + ResNet-50 (Gated Fusion)
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        174                  104                  73             
+Actual Neutral  :        227                  221                  146            
+Actual Positive :        168                  155                  132            

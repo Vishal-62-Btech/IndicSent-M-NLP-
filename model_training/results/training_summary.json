@@ -1,0 +1,1241 @@
+{
+  "all_models_ranked": [
+    {
+      "Model": "TF-IDF + Logistic Regression",
+      "Modality": "Text Only (Hinglish OCR)",
+      "Accuracy (%)": 43.79,
+      "Macro F1 (%)": 43.14,
+      "Macro Precision (%)": 43.11,
+      "Macro Recall (%)": 43.39,
+      "Weighted F1 (%)": 43.98,
+      "Negative F1 (%)": 37.84,
+      "Neutral F1 (%)": 47.63,
+      "Positive F1 (%)": 43.95,
+      "Negative Recall (%)": 41.03,
+      "Neutral Recall (%)": 45.62,
+      "Positive Recall (%)": 43.52,
+      "Train Time (s)": 0.39,
+      "Latency (ms/sample)": 0.025
+    },
+    {
+      "Model": "XLM-RoBERTa (xlm-roberta-base)",
+      "Modality": "Text Only (Transformer)",
+      "Accuracy (%)": 42.36,
+      "Macro F1 (%)": 41.66,
+      "Macro Precision (%)": 41.62,
+      "Macro Recall (%)": 41.82,
+      "Weighted F1 (%)": 42.43,
+      "Negative F1 (%)": 37.85,
+      "Neutral F1 (%)": 46.55,
+      "Positive F1 (%)": 40.59,
+      "Negative Recall (%)": 40.17,
+      "Neutral Recall (%)": 45.96,
+      "Positive Recall (%)": 39.34,
+      "Train Time (s)": 283.29,
+      "Latency (ms/sample)": 1.799
+    },
+    {
+      "Model": "MuRIL (google/muril-base-cased)",
+      "Modality": "Text Only (Transformer)",
+      "Accuracy (%)": 40.93,
+      "Macro F1 (%)": 40.75,
+      "Macro Precision (%)": 40.76,
+      "Macro Recall (%)": 41.48,
+      "Weighted F1 (%)": 41.04,
+      "Negative F1 (%)": 39.95,
+      "Neutral F1 (%)": 43.05,
+      "Positive F1 (%)": 39.25,
+      "Negative Recall (%)": 46.15,
+      "Neutral Recall (%)": 39.39,
+      "Positive Recall (%)": 38.9,
+      "Train Time (s)": 267.43,
+      "Latency (ms/sample)": 1.578
+    },
+    {
+      "Model": "TF-IDF + Random Forest",
+      "Modality": "Text Only (Hinglish OCR)",
+      "Accuracy (%)": 44.0,
+      "Macro F1 (%)": 40.75,
+      "Macro Precision (%)": 42.73,
+      "Macro Recall (%)": 40.98,
+      "Weighted F1 (%)": 42.52,
+      "Negative F1 (%)": 33.65,
+      "Neutral F1 (%)": 53.26,
+      "Positive F1 (%)": 35.36,
+      "Negative Recall (%)": 30.2,
+      "Neutral Recall (%)": 63.3,
+      "Positive Recall (%)": 29.45,
+      "Train Time (s)": 0.7,
+      "Latency (ms/sample)": 0.063
+    },
+    {
+      "Model": "MuRIL + ResNet-50 (Gated Fusion)",
+      "Modality": "Multimodal (Text + Image)",
+      "Accuracy (%)": 37.64,
+      "Macro F1 (%)": 37.24,
+      "Macro Precision (%)": 38.08,
+      "Macro Recall (%)": 38.6,
+      "Weighted F1 (%)": 37.59,
+      "Negative F1 (%)": 37.83,
+      "Neutral F1 (%)": 41.15,
+      "Positive F1 (%)": 32.75,
+      "Negative Recall (%)": 49.57,
+      "Neutral Recall (%)": 37.21,
+      "Positive Recall (%)": 29.01,
+      "Train Time (s)": 198.66,
+      "Latency (ms/sample)": 5.961
+    },
+    {
+      "Model": "TF-IDF + Multinomial Naive Bayes",
+      "Modality": "Text Only (Hinglish OCR)",
+      "Accuracy (%)": 42.86,
+      "Macro F1 (%)": 37.06,
+      "Macro Precision (%)": 40.71,
+      "Macro Recall (%)": 38.25,
+      "Weighted F1 (%)": 39.73,
+      "Negative F1 (%)": 24.24,
+      "Neutral F1 (%)": 54.4,
+      "Positive F1 (%)": 32.53,
+      "Negative Recall (%)": 18.23,
+      "Neutral Recall (%)": 69.7,
+      "Positive Recall (%)": 26.81,
+      "Train Time (s)": 0.27,
+      "Latency (ms/sample)": 0.028
+    },
+    {
+      "Model": "ResNet-50",
+      "Modality": "Image Only (Vision)",
+      "Accuracy (%)": 40.43,
+      "Macro F1 (%)": 37.04,
+      "Macro Precision (%)": 38.79,
+      "Macro Recall (%)": 37.7,
+      "Weighted F1 (%)": 38.88,
+      "Negative F1 (%)": 30.64,
+      "Neutral F1 (%)": 50.75,
+      "Positive F1 (%)": 29.73,
+      "Negative Recall (%)": 30.2,
+      "Neutral Recall (%)": 59.6,
+      "Positive Recall (%)": 23.3,
+      "Train Time (s)": 225.29,
+      "Latency (ms/sample)": 4.511
+    },
+    {
+      "Model": "EfficientNet-B0",
+      "Modality": "Image Only (Vision)",
+      "Accuracy (%)": 37.5,
+      "Macro F1 (%)": 36.54,
+      "Macro Precision (%)": 36.54,
+      "Macro Recall (%)": 36.73,
+      "Weighted F1 (%)": 37.64,
+      "Negative F1 (%)": 32.24,
+      "Neutral F1 (%)": 44.43,
+      "Positive F1 (%)": 32.95,
+      "Negative Recall (%)": 35.04,
+      "Neutral Recall (%)": 43.27,
+      "Positive Recall (%)": 31.87,
+      "Train Time (s)": 197.02,
+      "Latency (ms/sample)": 3.582
+    },
+    {
+      "Model": "MobileNetV3-Large",
+      "Modality": "Image Only (Vision)",
+      "Accuracy (%)": 38.21,
+      "Macro F1 (%)": 36.25,
+      "Macro Precision (%)": 36.62,
+      "Macro Recall (%)": 36.6,
+      "Weighted F1 (%)": 37.74,
+      "Negative F1 (%)": 25.08,
+      "Neutral F1 (%)": 42.89,
+      "Positive F1 (%)": 40.78,
+      "Negative Recall (%)": 21.94,
+      "Neutral Recall (%)": 41.92,
+      "Positive Recall (%)": 45.93,
+      "Train Time (s)": 168.9,
+      "Latency (ms/sample)": 3.359
+    },
+    {
+      "Model": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+      "Modality": "Multimodal (Text + Image)",
+      "Accuracy (%)": 36.0,
+      "Macro F1 (%)": 35.43,
+      "Macro Precision (%)": 35.51,
+      "Macro Recall (%)": 35.66,
+      "Weighted F1 (%)": 36.25,
+      "Negative F1 (%)": 30.99,
+      "Neutral F1 (%)": 40.44,
+      "Positive F1 (%)": 34.85,
+      "Negative Recall (%)": 33.33,
+      "Neutral Recall (%)": 37.37,
+      "Positive Recall (%)": 36.26,
+      "Train Time (s)": 187.5,
+      "Latency (ms/sample)": 5.271
+    },
+    {
+      "Model": "MuRIL + ResNet-50 (Concat Fusion)",
+      "Modality": "Multimodal (Text + Image)",
+      "Accuracy (%)": 37.57,
+      "Macro F1 (%)": 35.14,
+      "Macro Precision (%)": 38.41,
+      "Macro Recall (%)": 38.06,
+      "Weighted F1 (%)": 35.75,
+      "Negative F1 (%)": 39.18,
+      "Neutral F1 (%)": 44.33,
+      "Positive F1 (%)": 21.9,
+      "Negative Recall (%)": 54.13,
+      "Neutral Recall (%)": 45.12,
+      "Positive Recall (%)": 14.95,
+      "Train Time (s)": 250.22,
+      "Latency (ms/sample)": 6.384
+    },
+    {
+      "Model": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+      "Modality": "Multimodal (Text + Image)",
+      "Accuracy (%)": 31.43,
+      "Macro F1 (%)": 30.0,
+      "Macro Precision (%)": 35.5,
+      "Macro Recall (%)": 36.01,
+      "Weighted F1 (%)": 28.51,
+      "Negative F1 (%)": 38.88,
+      "Neutral F1 (%)": 21.61,
+      "Positive F1 (%)": 29.51,
+      "Negative Recall (%)": 68.95,
+      "Neutral Recall (%)": 14.48,
+      "Positive Recall (%)": 24.62,
+      "Train Time (s)": 211.06,
+      "Latency (ms/sample)": 6.044
+    },
+    {
+      "Model": "TF-IDF + Linear SVM",
+      "Modality": "Text Only (Hinglish OCR)",
+      "Accuracy (%)": 43.57,
+      "Macro F1 (%)": 27.97,
+      "Macro Precision (%)": 49.4,
+      "Macro Recall (%)": 35.63,
+      "Weighted F1 (%)": 32.58,
+      "Negative F1 (%)": 6.97,
+      "Neutral F1 (%)": 58.63,
+      "Positive F1 (%)": 18.31,
+      "Negative Recall (%)": 3.7,
+      "Neutral Recall (%)": 91.75,
+      "Positive Recall (%)": 11.43,
+      "Train Time (s)": 0.4,
+      "Latency (ms/sample)": 0.029
+    },
+    {
+      "Model": "Majority Baseline",
+      "Modality": "Text Only (Hinglish OCR)",
+      "Accuracy (%)": 42.43,
+      "Macro F1 (%)": 19.86,
+      "Macro Precision (%)": 14.14,
+      "Macro Recall (%)": 33.33,
+      "Weighted F1 (%)": 25.28,
+      "Negative F1 (%)": 0.0,
+      "Neutral F1 (%)": 59.58,
+      "Positive F1 (%)": 0.0,
+      "Negative Recall (%)": 0.0,
+      "Neutral Recall (%)": 100.0,
+      "Positive Recall (%)": 0.0,
+      "Train Time (s)": 0.3,
+      "Latency (ms/sample)": 0.03
+    }
+  ],
+  "detailed_experiments": {
+    "muril": {
+      "model_name": "google/muril-base-cased",
+      "best_epoch": 4,
+      "total_training_time_sec": 267.43,
+      "best_metrics": {
+        "model_name": "MuRIL (google/muril-base-cased)",
+        "accuracy": 40.93,
+        "macro_f1": 40.75,
+        "macro_precision": 40.76,
+        "macro_recall": 41.48,
+        "weighted_f1": 41.04,
+        "negative_f1": 39.95,
+        "negative_recall": 46.15,
+        "neutral_f1": 43.05,
+        "neutral_recall": 39.39,
+        "positive_f1": 39.25,
+        "positive_recall": 38.9,
+        "train_time_sec": 266.27,
+        "latency_ms_per_sample": 1.578,
+        "confusion_matrix": [
+          [
+            162,
+            103,
+            86
+          ],
+          [
+            176,
+            234,
+            184
+          ],
+          [
+            122,
+            156,
+            177
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0985,
+          "val_loss": 1.0985,
+          "val_accuracy": 42.43,
+          "val_macro_f1": 19.86,
+          "val_macro_precision": 14.14,
+          "val_macro_recall": 33.33,
+          "val_weighted_f1": 25.28,
+          "val_negative_f1": 0.0,
+          "val_neutral_f1": 59.58,
+          "val_positive_f1": 0.0,
+          "epoch_train_time_sec": 64.09
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0984,
+          "val_loss": 1.0985,
+          "val_accuracy": 42.43,
+          "val_macro_f1": 19.86,
+          "val_macro_precision": 14.14,
+          "val_macro_recall": 33.33,
+          "val_weighted_f1": 25.28,
+          "val_negative_f1": 0.0,
+          "val_neutral_f1": 59.58,
+          "val_positive_f1": 0.0,
+          "epoch_train_time_sec": 67.35
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0966,
+          "val_loss": 1.091,
+          "val_accuracy": 43.36,
+          "val_macro_f1": 40.42,
+          "val_macro_precision": 41.67,
+          "val_macro_recall": 40.68,
+          "val_weighted_f1": 42.13,
+          "val_negative_f1": 34.15,
+          "val_neutral_f1": 52.92,
+          "val_positive_f1": 34.2,
+          "epoch_train_time_sec": 61.63
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0812,
+          "val_loss": 1.0842,
+          "val_accuracy": 40.93,
+          "val_macro_f1": 40.75,
+          "val_macro_precision": 40.76,
+          "val_macro_recall": 41.48,
+          "val_weighted_f1": 41.04,
+          "val_negative_f1": 39.95,
+          "val_neutral_f1": 43.05,
+          "val_positive_f1": 39.25,
+          "epoch_train_time_sec": 61.45
+        }
+      ],
+      "training_config": {
+        "model_name": "google/muril-base-cased",
+        "epochs": 4,
+        "batch_size_per_step": 8,
+        "grad_accum_steps": 2,
+        "effective_batch_size": 16,
+        "learning_rate": 2e-05,
+        "max_length": 128,
+        "weight_decay": 0.01,
+        "warmup_steps": 140,
+        "total_update_steps": 1400,
+        "early_stopping_patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "xlm_roberta": {
+      "model_name": "xlm-roberta-base",
+      "best_epoch": 3,
+      "total_training_time_sec": 283.29,
+      "best_metrics": {
+        "model_name": "XLM-RoBERTa (xlm-roberta-base)",
+        "accuracy": 42.36,
+        "macro_f1": 41.66,
+        "macro_precision": 41.62,
+        "macro_recall": 41.82,
+        "weighted_f1": 42.43,
+        "negative_f1": 37.85,
+        "negative_recall": 40.17,
+        "neutral_f1": 46.55,
+        "neutral_recall": 45.96,
+        "positive_f1": 40.59,
+        "positive_recall": 39.34,
+        "train_time_sec": 212.08,
+        "latency_ms_per_sample": 1.799,
+        "confusion_matrix": [
+          [
+            141,
+            133,
+            77
+          ],
+          [
+            150,
+            273,
+            171
+          ],
+          [
+            103,
+            173,
+            179
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.1023,
+          "val_loss": 1.0975,
+          "val_accuracy": 42.43,
+          "val_macro_f1": 19.86,
+          "val_macro_precision": 14.14,
+          "val_macro_recall": 33.33,
+          "val_weighted_f1": 25.28,
+          "val_negative_f1": 0.0,
+          "val_neutral_f1": 59.58,
+          "val_positive_f1": 0.0,
+          "epoch_train_time_sec": 68.15
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0949,
+          "val_loss": 1.0915,
+          "val_accuracy": 45.0,
+          "val_macro_f1": 37.42,
+          "val_macro_precision": 45.01,
+          "val_macro_recall": 39.44,
+          "val_weighted_f1": 40.6,
+          "val_negative_f1": 20.89,
+          "val_neutral_f1": 57.12,
+          "val_positive_f1": 34.24,
+          "epoch_train_time_sec": 66.11
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0665,
+          "val_loss": 1.0945,
+          "val_accuracy": 42.36,
+          "val_macro_f1": 41.66,
+          "val_macro_precision": 41.62,
+          "val_macro_recall": 41.82,
+          "val_weighted_f1": 42.43,
+          "val_negative_f1": 37.85,
+          "val_neutral_f1": 46.55,
+          "val_positive_f1": 40.59,
+          "epoch_train_time_sec": 67.17
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0388,
+          "val_loss": 1.0981,
+          "val_accuracy": 42.21,
+          "val_macro_f1": 41.35,
+          "val_macro_precision": 41.32,
+          "val_macro_recall": 41.48,
+          "val_weighted_f1": 42.27,
+          "val_negative_f1": 35.18,
+          "val_neutral_f1": 45.94,
+          "val_positive_f1": 42.95,
+          "epoch_train_time_sec": 67.12
+        }
+      ],
+      "training_config": {
+        "model_name": "xlm-roberta-base",
+        "epochs": 4,
+        "batch_size_per_step": 8,
+        "grad_accum_steps": 2,
+        "effective_batch_size": 16,
+        "learning_rate": 2e-05,
+        "max_length": 128,
+        "weight_decay": 0.01,
+        "warmup_steps": 140,
+        "total_update_steps": 1400,
+        "early_stopping_patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "resnet50": {
+      "model_name": "ResNet-50",
+      "folder_name": "resnet50",
+      "best_epoch": 3,
+      "total_training_time_sec": 225.29,
+      "best_metrics": {
+        "model_name": "ResNet-50",
+        "accuracy": 40.43,
+        "macro_f1": 37.04,
+        "macro_precision": 38.79,
+        "macro_recall": 37.7,
+        "weighted_f1": 38.88,
+        "negative_f1": 30.64,
+        "negative_recall": 30.2,
+        "neutral_f1": 50.75,
+        "neutral_recall": 59.6,
+        "positive_f1": 29.73,
+        "positive_recall": 23.3,
+        "train_time_sec": 166.41,
+        "latency_ms_per_sample": 4.511,
+        "confusion_matrix": [
+          [
+            106,
+            186,
+            59
+          ],
+          [
+            147,
+            354,
+            93
+          ],
+          [
+            88,
+            261,
+            106
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0969,
+          "val_loss": 1.0933,
+          "val_accuracy": 35.93,
+          "val_macro_f1": 35.9,
+          "val_macro_precision": 38.26,
+          "val_macro_recall": 38.27,
+          "val_weighted_f1": 35.59,
+          "val_negative_f1": 37.15,
+          "val_neutral_f1": 33.73,
+          "val_positive_f1": 36.82,
+          "epoch_train_time_sec": 48.02
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0726,
+          "val_loss": 1.0938,
+          "val_accuracy": 36.93,
+          "val_macro_f1": 36.92,
+          "val_macro_precision": 37.66,
+          "val_macro_recall": 38.19,
+          "val_weighted_f1": 36.97,
+          "val_negative_f1": 35.79,
+          "val_neutral_f1": 36.58,
+          "val_positive_f1": 38.39,
+          "epoch_train_time_sec": 43.91
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0374,
+          "val_loss": 1.115,
+          "val_accuracy": 40.43,
+          "val_macro_f1": 37.04,
+          "val_macro_precision": 38.79,
+          "val_macro_recall": 37.7,
+          "val_weighted_f1": 38.88,
+          "val_negative_f1": 30.64,
+          "val_neutral_f1": 50.75,
+          "val_positive_f1": 29.73,
+          "epoch_train_time_sec": 54.89
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.9891,
+          "val_loss": 1.1377,
+          "val_accuracy": 36.86,
+          "val_macro_f1": 36.82,
+          "val_macro_precision": 37.66,
+          "val_macro_recall": 38.05,
+          "val_weighted_f1": 36.98,
+          "val_negative_f1": 35.94,
+          "val_neutral_f1": 37.83,
+          "val_positive_f1": 36.67,
+          "epoch_train_time_sec": 52.05
+        }
+      ],
+      "training_config": {
+        "model_name": "ResNet-50",
+        "folder_name": "resnet50",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate_head": 0.0001,
+        "learning_rate_backbone": 1e-05,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "efficientnet_b0": {
+      "model_name": "EfficientNet-B0",
+      "folder_name": "efficientnet_b0",
+      "best_epoch": 3,
+      "total_training_time_sec": 197.02,
+      "best_metrics": {
+        "model_name": "EfficientNet-B0",
+        "accuracy": 37.5,
+        "macro_f1": 36.54,
+        "macro_precision": 36.54,
+        "macro_recall": 36.73,
+        "weighted_f1": 37.64,
+        "negative_f1": 32.24,
+        "negative_recall": 35.04,
+        "neutral_f1": 44.43,
+        "neutral_recall": 43.27,
+        "positive_f1": 32.95,
+        "positive_recall": 31.87,
+        "train_time_sec": 149.69,
+        "latency_ms_per_sample": 3.582,
+        "confusion_matrix": [
+          [
+            123,
+            126,
+            102
+          ],
+          [
+            159,
+            257,
+            178
+          ],
+          [
+            130,
+            180,
+            145
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0999,
+          "val_loss": 1.0982,
+          "val_accuracy": 29.93,
+          "val_macro_f1": 28.44,
+          "val_macro_precision": 35.16,
+          "val_macro_recall": 34.34,
+          "val_weighted_f1": 26.76,
+          "val_negative_f1": 36.74,
+          "val_neutral_f1": 17.78,
+          "val_positive_f1": 30.79,
+          "epoch_train_time_sec": 50.95
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0863,
+          "val_loss": 1.1039,
+          "val_accuracy": 38.57,
+          "val_macro_f1": 35.81,
+          "val_macro_precision": 36.74,
+          "val_macro_recall": 36.4,
+          "val_weighted_f1": 37.73,
+          "val_negative_f1": 22.34,
+          "val_neutral_f1": 45.05,
+          "val_positive_f1": 40.04,
+          "epoch_train_time_sec": 41.16
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.075,
+          "val_loss": 1.1025,
+          "val_accuracy": 37.5,
+          "val_macro_f1": 36.54,
+          "val_macro_precision": 36.54,
+          "val_macro_recall": 36.73,
+          "val_weighted_f1": 37.64,
+          "val_negative_f1": 32.24,
+          "val_neutral_f1": 44.43,
+          "val_positive_f1": 32.95,
+          "epoch_train_time_sec": 42.19
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0551,
+          "val_loss": 1.1132,
+          "val_accuracy": 34.21,
+          "val_macro_f1": 34.13,
+          "val_macro_precision": 36.81,
+          "val_macro_recall": 36.04,
+          "val_weighted_f1": 33.99,
+          "val_negative_f1": 33.51,
+          "val_neutral_f1": 32.27,
+          "val_positive_f1": 36.6,
+          "epoch_train_time_sec": 42.16
+        }
+      ],
+      "training_config": {
+        "model_name": "EfficientNet-B0",
+        "folder_name": "efficientnet_b0",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate_head": 0.0001,
+        "learning_rate_backbone": 1e-05,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "mobilenet_v3": {
+      "model_name": "MobileNetV3-Large",
+      "folder_name": "mobilenet_v3",
+      "best_epoch": 4,
+      "total_training_time_sec": 168.9,
+      "best_metrics": {
+        "model_name": "MobileNetV3-Large",
+        "accuracy": 38.21,
+        "macro_f1": 36.25,
+        "macro_precision": 36.62,
+        "macro_recall": 36.6,
+        "weighted_f1": 37.74,
+        "negative_f1": 25.08,
+        "negative_recall": 21.94,
+        "neutral_f1": 42.89,
+        "neutral_recall": 41.92,
+        "positive_f1": 40.78,
+        "positive_recall": 45.93,
+        "train_time_sec": 168.79,
+        "latency_ms_per_sample": 3.359,
+        "confusion_matrix": [
+          [
+            77,
+            143,
+            131
+          ],
+          [
+            115,
+            249,
+            230
+          ],
+          [
+            71,
+            175,
+            209
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.1021,
+          "val_loss": 1.0962,
+          "val_accuracy": 37.86,
+          "val_macro_f1": 35.3,
+          "val_macro_precision": 36.2,
+          "val_macro_recall": 35.64,
+          "val_weighted_f1": 37.07,
+          "val_negative_f1": 27.86,
+          "val_neutral_f1": 47.58,
+          "val_positive_f1": 30.46,
+          "epoch_train_time_sec": 40.72
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0899,
+          "val_loss": 1.0972,
+          "val_accuracy": 35.21,
+          "val_macro_f1": 35.21,
+          "val_macro_precision": 37.34,
+          "val_macro_recall": 37.06,
+          "val_weighted_f1": 35.18,
+          "val_negative_f1": 35.43,
+          "val_neutral_f1": 35.06,
+          "val_positive_f1": 35.13,
+          "epoch_train_time_sec": 36.2
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0752,
+          "val_loss": 1.0988,
+          "val_accuracy": 36.86,
+          "val_macro_f1": 36.11,
+          "val_macro_precision": 36.19,
+          "val_macro_recall": 36.49,
+          "val_weighted_f1": 36.91,
+          "val_negative_f1": 29.16,
+          "val_neutral_f1": 39.0,
+          "val_positive_f1": 40.16,
+          "epoch_train_time_sec": 36.28
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0556,
+          "val_loss": 1.1088,
+          "val_accuracy": 38.21,
+          "val_macro_f1": 36.25,
+          "val_macro_precision": 36.62,
+          "val_macro_recall": 36.6,
+          "val_weighted_f1": 37.74,
+          "val_negative_f1": 25.08,
+          "val_neutral_f1": 42.89,
+          "val_positive_f1": 40.78,
+          "epoch_train_time_sec": 36.49
+        }
+      ],
+      "training_config": {
+        "model_name": "MobileNetV3-Large",
+        "folder_name": "mobilenet_v3",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate_head": 0.0001,
+        "learning_rate_backbone": 1e-05,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "muril_resnet50": {
+      "model_name": "MuRIL + ResNet-50 (Concat Fusion)",
+      "arch_key": "muril_resnet50",
+      "folder_name": "muril_resnet50",
+      "best_epoch": 4,
+      "total_training_time_sec": 250.22,
+      "best_metrics": {
+        "model_name": "MuRIL + ResNet-50 (Concat Fusion)",
+        "accuracy": 37.57,
+        "macro_f1": 35.14,
+        "macro_precision": 38.41,
+        "macro_recall": 38.06,
+        "weighted_f1": 35.75,
+        "negative_f1": 39.18,
+        "negative_recall": 54.13,
+        "neutral_f1": 44.33,
+        "neutral_recall": 45.12,
+        "positive_f1": 21.9,
+        "positive_recall": 14.95,
+        "train_time_sec": 248.64,
+        "latency_ms_per_sample": 6.384,
+        "confusion_matrix": [
+          [
+            190,
+            134,
+            27
+          ],
+          [
+            255,
+            268,
+            71
+          ],
+          [
+            174,
+            213,
+            68
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0989,
+          "val_loss": 1.1017,
+          "val_accuracy": 36.0,
+          "val_macro_f1": 28.42,
+          "val_macro_precision": 40.93,
+          "val_macro_recall": 34.37,
+          "val_weighted_f1": 30.52,
+          "val_negative_f1": 6.38,
+          "val_neutral_f1": 33.06,
+          "val_positive_f1": 45.81,
+          "epoch_train_time_sec": 52.58
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0861,
+          "val_loss": 1.0926,
+          "val_accuracy": 35.86,
+          "val_macro_f1": 35.07,
+          "val_macro_precision": 38.15,
+          "val_macro_recall": 38.84,
+          "val_weighted_f1": 33.9,
+          "val_negative_f1": 37.27,
+          "val_neutral_f1": 24.94,
+          "val_positive_f1": 43.01,
+          "epoch_train_time_sec": 52.9
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0683,
+          "val_loss": 1.1045,
+          "val_accuracy": 40.14,
+          "val_macro_f1": 31.82,
+          "val_macro_precision": 38.36,
+          "val_macro_recall": 35.63,
+          "val_weighted_f1": 34.27,
+          "val_negative_f1": 28.12,
+          "val_neutral_f1": 53.76,
+          "val_positive_f1": 13.58,
+          "epoch_train_time_sec": 52.33
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0514,
+          "val_loss": 1.1137,
+          "val_accuracy": 37.57,
+          "val_macro_f1": 35.14,
+          "val_macro_precision": 38.41,
+          "val_macro_recall": 38.06,
+          "val_weighted_f1": 35.75,
+          "val_negative_f1": 39.18,
+          "val_neutral_f1": 44.33,
+          "val_positive_f1": 21.9,
+          "epoch_train_time_sec": 51.47
+        }
+      ],
+      "training_config": {
+        "model_name": "MuRIL + ResNet-50 (Concat Fusion)",
+        "arch_key": "muril_resnet50",
+        "text_backbone": "google/muril-base-cased",
+        "vision_backbone": "resnet50",
+        "fusion_type": "concat",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "muril_efficientnet": {
+      "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+      "arch_key": "muril_efficientnet",
+      "folder_name": "muril_efficientnet",
+      "best_epoch": 4,
+      "total_training_time_sec": 187.5,
+      "best_metrics": {
+        "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+        "accuracy": 36.0,
+        "macro_f1": 35.43,
+        "macro_precision": 35.51,
+        "macro_recall": 35.66,
+        "weighted_f1": 36.25,
+        "negative_f1": 30.99,
+        "negative_recall": 33.33,
+        "neutral_f1": 40.44,
+        "neutral_recall": 37.37,
+        "positive_f1": 34.85,
+        "positive_recall": 36.26,
+        "train_time_sec": 186.0,
+        "latency_ms_per_sample": 5.271,
+        "confusion_matrix": [
+          [
+            117,
+            122,
+            112
+          ],
+          [
+            157,
+            222,
+            215
+          ],
+          [
+            130,
+            160,
+            165
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0996,
+          "val_loss": 1.1003,
+          "val_accuracy": 39.0,
+          "val_macro_f1": 31.19,
+          "val_macro_precision": 34.31,
+          "val_macro_recall": 33.86,
+          "val_weighted_f1": 34.31,
+          "val_negative_f1": 18.72,
+          "val_neutral_f1": 53.24,
+          "val_positive_f1": 21.62,
+          "epoch_train_time_sec": 39.28
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0894,
+          "val_loss": 1.1147,
+          "val_accuracy": 33.36,
+          "val_macro_f1": 28.39,
+          "val_macro_precision": 35.02,
+          "val_macro_recall": 34.29,
+          "val_weighted_f1": 27.94,
+          "val_negative_f1": 21.26,
+          "val_neutral_f1": 18.54,
+          "val_positive_f1": 45.37,
+          "epoch_train_time_sec": 37.77
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0817,
+          "val_loss": 1.1077,
+          "val_accuracy": 35.29,
+          "val_macro_f1": 34.85,
+          "val_macro_precision": 35.45,
+          "val_macro_recall": 35.49,
+          "val_weighted_f1": 35.34,
+          "val_negative_f1": 30.6,
+          "val_neutral_f1": 36.56,
+          "val_positive_f1": 37.39,
+          "epoch_train_time_sec": 37.88
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0704,
+          "val_loss": 1.1192,
+          "val_accuracy": 36.0,
+          "val_macro_f1": 35.43,
+          "val_macro_precision": 35.51,
+          "val_macro_recall": 35.66,
+          "val_weighted_f1": 36.25,
+          "val_negative_f1": 30.99,
+          "val_neutral_f1": 40.44,
+          "val_positive_f1": 34.85,
+          "epoch_train_time_sec": 37.89
+        }
+      ],
+      "training_config": {
+        "model_name": "MuRIL + EfficientNet-B0 (Concat Fusion)",
+        "arch_key": "muril_efficientnet",
+        "text_backbone": "google/muril-base-cased",
+        "vision_backbone": "efficientnet_b0",
+        "fusion_type": "concat",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "xlm_resnet50": {
+      "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+      "arch_key": "xlm_resnet50",
+      "folder_name": "xlm_resnet50",
+      "best_epoch": 4,
+      "total_training_time_sec": 211.06,
+      "best_metrics": {
+        "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+        "accuracy": 31.43,
+        "macro_f1": 30.0,
+        "macro_precision": 35.5,
+        "macro_recall": 36.01,
+        "weighted_f1": 28.51,
+        "negative_f1": 38.88,
+        "negative_recall": 68.95,
+        "neutral_f1": 21.61,
+        "neutral_recall": 14.48,
+        "positive_f1": 29.51,
+        "positive_recall": 24.62,
+        "train_time_sec": 209.19,
+        "latency_ms_per_sample": 6.044,
+        "confusion_matrix": [
+          [
+            242,
+            48,
+            61
+          ],
+          [
+            377,
+            86,
+            131
+          ],
+          [
+            275,
+            68,
+            112
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.1042,
+          "val_loss": 1.0981,
+          "val_accuracy": 33.07,
+          "val_macro_f1": 20.03,
+          "val_macro_precision": 38.7,
+          "val_macro_recall": 33.46,
+          "val_weighted_f1": 20.31,
+          "val_negative_f1": 2.22,
+          "val_neutral_f1": 9.47,
+          "val_positive_f1": 48.41,
+          "epoch_train_time_sec": 44.27
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0985,
+          "val_loss": 1.0938,
+          "val_accuracy": 32.29,
+          "val_macro_f1": 27.34,
+          "val_macro_precision": 21.77,
+          "val_macro_recall": 37.91,
+          "val_weighted_f1": 23.72,
+          "val_negative_f1": 39.61,
+          "val_neutral_f1": 0.0,
+          "val_positive_f1": 42.42,
+          "epoch_train_time_sec": 42.38
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0856,
+          "val_loss": 1.113,
+          "val_accuracy": 32.36,
+          "val_macro_f1": 22.84,
+          "val_macro_precision": 53.57,
+          "val_macro_recall": 34.39,
+          "val_weighted_f1": 20.8,
+          "val_negative_f1": 20.22,
+          "val_neutral_f1": 0.34,
+          "val_positive_f1": 47.97,
+          "epoch_train_time_sec": 41.97
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0772,
+          "val_loss": 1.1006,
+          "val_accuracy": 31.43,
+          "val_macro_f1": 30.0,
+          "val_macro_precision": 35.5,
+          "val_macro_recall": 36.01,
+          "val_weighted_f1": 28.51,
+          "val_negative_f1": 38.88,
+          "val_neutral_f1": 21.61,
+          "val_positive_f1": 29.51,
+          "epoch_train_time_sec": 42.26
+        }
+      ],
+      "training_config": {
+        "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+        "arch_key": "xlm_resnet50",
+        "text_backbone": "xlm-roberta-base",
+        "vision_backbone": "resnet50",
+        "fusion_type": "concat",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    },
+    "gated_fusion": {
+      "model_name": "MuRIL + ResNet-50 (Gated Fusion)",
+      "arch_key": "gated_fusion",
+      "folder_name": "gated_fusion",
+      "best_epoch": 2,
+      "total_training_time_sec": 198.66,
+      "best_metrics": {
+        "model_name": "MuRIL + ResNet-50 (Gated Fusion)",
+        "accuracy": 37.64,
+        "macro_f1": 37.24,
+        "macro_precision": 38.08,
+        "macro_recall": 38.6,
+        "weighted_f1": 37.59,
+        "negative_f1": 37.83,
+        "negative_recall": 49.57,
+        "neutral_f1": 41.15,
+        "neutral_recall": 37.21,
+        "positive_f1": 32.75,
+        "positive_recall": 29.01,
+        "train_time_sec": 99.37,
+        "latency_ms_per_sample": 5.961,
+        "confusion_matrix": [
+          [
+            174,
+            104,
+            73
+          ],
+          [
+            227,
+            221,
+            146
+          ],
+          [
+            168,
+            155,
+            132
+          ]
+        ]
+      },
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.1123,
+          "val_loss": 1.1056,
+          "val_accuracy": 42.93,
+          "val_macro_f1": 22.7,
+          "val_macro_precision": 46.08,
+          "val_macro_recall": 34.16,
+          "val_weighted_f1": 27.83,
+          "val_negative_f1": 2.75,
+          "val_neutral_f1": 59.51,
+          "val_positive_f1": 5.82,
+          "epoch_train_time_sec": 40.92
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0947,
+          "val_loss": 1.092,
+          "val_accuracy": 37.64,
+          "val_macro_f1": 37.24,
+          "val_macro_precision": 38.08,
+          "val_macro_recall": 38.6,
+          "val_weighted_f1": 37.59,
+          "val_negative_f1": 37.83,
+          "val_neutral_f1": 41.15,
+          "val_positive_f1": 32.75,
+          "epoch_train_time_sec": 40.17
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0737,
+          "val_loss": 1.1032,
+          "val_accuracy": 41.57,
+          "val_macro_f1": 33.12,
+          "val_macro_precision": 40.3,
+          "val_macro_recall": 37.02,
+          "val_weighted_f1": 35.64,
+          "val_negative_f1": 29.32,
+          "val_neutral_f1": 55.65,
+          "val_positive_f1": 14.39,
+          "epoch_train_time_sec": 40.22
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.0602,
+          "val_loss": 1.1063,
+          "val_accuracy": 36.14,
+          "val_macro_f1": 36.15,
+          "val_macro_precision": 37.5,
+          "val_macro_recall": 37.95,
+          "val_weighted_f1": 36.0,
+          "val_negative_f1": 36.98,
+          "val_neutral_f1": 35.32,
+          "val_positive_f1": 36.14,
+          "epoch_train_time_sec": 40.88
+        }
+      ],
+      "training_config": {
+        "model_name": "MuRIL + ResNet-50 (Gated Fusion)",
+        "arch_key": "gated_fusion",
+        "text_backbone": "google/muril-base-cased",
+        "vision_backbone": "resnet50",
+        "fusion_type": "gated",
+        "epochs": 4,
+        "batch_size": 16,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.01,
+        "patience": 2,
+        "fp16": true,
+        "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+      }
+    }
+  }
+}

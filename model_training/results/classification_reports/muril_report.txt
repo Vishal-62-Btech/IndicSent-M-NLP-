@@ -1,0 +1,11 @@
+Classification Report: google/muril-base-cased
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    35.22%          46.15%       39.95%          351
+Neutral     47.46%          39.39%       43.05%          594
+Positive    39.60%          38.90%       39.25%          455
+----------------------------------------------------------------------
+Accuracy:        40.93%
+Macro Avg:       40.76% (P) | 41.48% (R) | 40.75% (F1)
+Weighted Avg:    41.04% (F1)
+Inference Latency: 1.578 ms / sample

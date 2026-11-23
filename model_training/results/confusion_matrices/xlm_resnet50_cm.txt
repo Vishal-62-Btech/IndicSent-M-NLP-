@@ -1,0 +1,6 @@
+Confusion Matrix: XLM-RoBERTa + ResNet-50 (Concat Fusion)
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        242                  48                   61             
+Actual Neutral  :        377                  86                   131            
+Actual Positive :        275                  68                   112            

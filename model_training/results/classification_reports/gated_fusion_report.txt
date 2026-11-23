@@ -1,0 +1,11 @@
+Classification Report: MuRIL + ResNet-50 (Gated Fusion)
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    30.58%          49.57%       37.83%          351
+Neutral     46.04%          37.21%       41.15%          594
+Positive    37.61%          29.01%       32.75%          455
+----------------------------------------------------------------------
+Accuracy:        37.64%
+Macro Avg:       38.08% (P) | 38.6% (R) | 37.24% (F1)
+Weighted Avg:    37.59% (F1)
+Inference Latency: 5.961 ms / sample

@@ -1,0 +1,11 @@
+Classification Report: MuRIL + EfficientNet-B0 (Concat Fusion)
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    28.96%          33.33%       30.99%          351
+Neutral     44.05%          37.37%       40.44%          594
+Positive    33.54%          36.26%       34.85%          455
+----------------------------------------------------------------------
+Accuracy:        36.0%
+Macro Avg:       35.51% (P) | 35.66% (R) | 35.43% (F1)
+Weighted Avg:    36.25% (F1)
+Inference Latency: 5.271 ms / sample

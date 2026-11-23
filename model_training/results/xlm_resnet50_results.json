@@ -1,0 +1,112 @@
+{
+  "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+  "arch_key": "xlm_resnet50",
+  "folder_name": "xlm_resnet50",
+  "best_epoch": 4,
+  "total_training_time_sec": 211.06,
+  "best_metrics": {
+    "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+    "accuracy": 31.43,
+    "macro_f1": 30.0,
+    "macro_precision": 35.5,
+    "macro_recall": 36.01,
+    "weighted_f1": 28.51,
+    "negative_f1": 38.88,
+    "negative_recall": 68.95,
+    "neutral_f1": 21.61,
+    "neutral_recall": 14.48,
+    "positive_f1": 29.51,
+    "positive_recall": 24.62,
+    "train_time_sec": 209.19,
+    "latency_ms_per_sample": 6.044,
+    "confusion_matrix": [
+      [
+        242,
+        48,
+        61
+      ],
+      [
+        377,
+        86,
+        131
+      ],
+      [
+        275,
+        68,
+        112
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1042,
+      "val_loss": 1.0981,
+      "val_accuracy": 33.07,
+      "val_macro_f1": 20.03,
+      "val_macro_precision": 38.7,
+      "val_macro_recall": 33.46,
+      "val_weighted_f1": 20.31,
+      "val_negative_f1": 2.22,
+      "val_neutral_f1": 9.47,
+      "val_positive_f1": 48.41,
+      "epoch_train_time_sec": 44.27
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0985,
+      "val_loss": 1.0938,
+      "val_accuracy": 32.29,
+      "val_macro_f1": 27.34,
+      "val_macro_precision": 21.77,
+      "val_macro_recall": 37.91,
+      "val_weighted_f1": 23.72,
+      "val_negative_f1": 39.61,
+      "val_neutral_f1": 0.0,
+      "val_positive_f1": 42.42,
+      "epoch_train_time_sec": 42.38
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0856,
+      "val_loss": 1.113,
+      "val_accuracy": 32.36,
+      "val_macro_f1": 22.84,
+      "val_macro_precision": 53.57,
+      "val_macro_recall": 34.39,
+      "val_weighted_f1": 20.8,
+      "val_negative_f1": 20.22,
+      "val_neutral_f1": 0.34,
+      "val_positive_f1": 47.97,
+      "epoch_train_time_sec": 41.97
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0772,
+      "val_loss": 1.1006,
+      "val_accuracy": 31.43,
+      "val_macro_f1": 30.0,
+      "val_macro_precision": 35.5,
+      "val_macro_recall": 36.01,
+      "val_weighted_f1": 28.51,
+      "val_negative_f1": 38.88,
+      "val_neutral_f1": 21.61,
+      "val_positive_f1": 29.51,
+      "epoch_train_time_sec": 42.26
+    }
+  ],
+  "training_config": {
+    "model_name": "XLM-RoBERTa + ResNet-50 (Concat Fusion)",
+    "arch_key": "xlm_resnet50",
+    "text_backbone": "xlm-roberta-base",
+    "vision_backbone": "resnet50",
+    "fusion_type": "concat",
+    "epochs": 4,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

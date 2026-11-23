@@ -1,0 +1,19 @@
+{
+  "label_to_id": {
+    "Negative": 0,
+    "Neutral": 1,
+    "Positive": 2
+  },
+  "id_to_label": {
+    "0": "Negative",
+    "1": "Neutral",
+    "2": "Positive"
+  },
+  "original_to_3class": {
+    "negative": "Negative",
+    "very_negative": "Negative",
+    "neutral": "Neutral",
+    "positive": "Positive",
+    "very_positive": "Positive"
+  }
+}

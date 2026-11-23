@@ -1,0 +1,11 @@
+Classification Report: ResNet-50
+----------------------------------------------------------------------
+Class       Precision (%)    Recall (%)    F1-Score (%)    Support
+Negative    31.09%          30.20%       30.64%          351
+Neutral     44.19%          59.60%       50.75%          594
+Positive    41.09%          23.30%       29.73%          455
+----------------------------------------------------------------------
+Accuracy:        40.43%
+Macro Avg:       38.79% (P) | 37.7% (R) | 37.04% (F1)
+Weighted Avg:    38.88% (F1)
+Inference Latency: 4.511 ms / sample

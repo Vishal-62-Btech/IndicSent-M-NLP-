@@ -1,0 +1,109 @@
+{
+  "model_name": "EfficientNet-B0",
+  "folder_name": "efficientnet_b0",
+  "best_epoch": 3,
+  "total_training_time_sec": 197.02,
+  "best_metrics": {
+    "model_name": "EfficientNet-B0",
+    "accuracy": 37.5,
+    "macro_f1": 36.54,
+    "macro_precision": 36.54,
+    "macro_recall": 36.73,
+    "weighted_f1": 37.64,
+    "negative_f1": 32.24,
+    "negative_recall": 35.04,
+    "neutral_f1": 44.43,
+    "neutral_recall": 43.27,
+    "positive_f1": 32.95,
+    "positive_recall": 31.87,
+    "train_time_sec": 149.69,
+    "latency_ms_per_sample": 3.582,
+    "confusion_matrix": [
+      [
+        123,
+        126,
+        102
+      ],
+      [
+        159,
+        257,
+        178
+      ],
+      [
+        130,
+        180,
+        145
+      ]
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0999,
+      "val_loss": 1.0982,
+      "val_accuracy": 29.93,
+      "val_macro_f1": 28.44,
+      "val_macro_precision": 35.16,
+      "val_macro_recall": 34.34,
+      "val_weighted_f1": 26.76,
+      "val_negative_f1": 36.74,
+      "val_neutral_f1": 17.78,
+      "val_positive_f1": 30.79,
+      "epoch_train_time_sec": 50.95
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0863,
+      "val_loss": 1.1039,
+      "val_accuracy": 38.57,
+      "val_macro_f1": 35.81,
+      "val_macro_precision": 36.74,
+      "val_macro_recall": 36.4,
+      "val_weighted_f1": 37.73,
+      "val_negative_f1": 22.34,
+      "val_neutral_f1": 45.05,
+      "val_positive_f1": 40.04,
+      "epoch_train_time_sec": 41.16
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.075,
+      "val_loss": 1.1025,
+      "val_accuracy": 37.5,
+      "val_macro_f1": 36.54,
+      "val_macro_precision": 36.54,
+      "val_macro_recall": 36.73,
+      "val_weighted_f1": 37.64,
+      "val_negative_f1": 32.24,
+      "val_neutral_f1": 44.43,
+      "val_positive_f1": 32.95,
+      "epoch_train_time_sec": 42.19
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0551,
+      "val_loss": 1.1132,
+      "val_accuracy": 34.21,
+      "val_macro_f1": 34.13,
+      "val_macro_precision": 36.81,
+      "val_macro_recall": 36.04,
+      "val_weighted_f1": 33.99,
+      "val_negative_f1": 33.51,
+      "val_neutral_f1": 32.27,
+      "val_positive_f1": 36.6,
+      "epoch_train_time_sec": 42.16
+    }
+  ],
+  "training_config": {
+    "model_name": "EfficientNet-B0",
+    "folder_name": "efficientnet_b0",
+    "epochs": 4,
+    "batch_size": 16,
+    "learning_rate_head": 0.0001,
+    "learning_rate_backbone": 1e-05,
+    "weight_decay": 0.01,
+    "patience": 2,
+    "fp16": true,
+    "device": "NVIDIA GeForce RTX 5050 Laptop GPU"
+  }
+}

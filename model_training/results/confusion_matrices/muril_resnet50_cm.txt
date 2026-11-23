@@ -1,0 +1,6 @@
+Confusion Matrix: MuRIL + ResNet-50 (Concat Fusion)
+----------------------------------------------------------------------
+                  Predicted Negative    Predicted Neutral    Predicted Positive
+Actual Negative :        190                  134                  27             
+Actual Neutral  :        255                  268                  71             
+Actual Positive :        174                  213                  68             

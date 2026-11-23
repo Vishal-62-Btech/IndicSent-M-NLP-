@@ -1,0 +1,34 @@
+# IndicSent-M: Final Model Comparison & Benchmark Rankings
+
+This report presents the consolidated benchmark results for all models trained and evaluated on the **Memotion 3.0** dataset under identical stratified 80:20 validation conditions (1,400 samples).
+
+---
+
+## 1. Consolidated Leaderboard (Ranked by Macro-F1)
+
+| Model | Modality | Accuracy (%) | Macro F1 (%) | Macro Precision (%) | Macro Recall (%) | Weighted F1 (%) | Negative F1 (%) | Neutral F1 (%) | Positive F1 (%) | Negative Recall (%) | Neutral Recall (%) | Positive Recall (%) | Train Time (s) | Latency (ms/sample) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TF-IDF + Logistic Regression | Text Only (Hinglish OCR) | 43.79 | 43.14 | 43.11 | 43.39 | 43.98 | 37.84 | 47.63 | 43.95 | 41.03 | 45.62 | 43.52 | 0.39 | 0.025 |
+| XLM-RoBERTa (xlm-roberta-base) | Text Only (Transformer) | 42.36 | 41.66 | 41.62 | 41.82 | 42.43 | 37.85 | 46.55 | 40.59 | 40.17 | 45.96 | 39.34 | 283.29 | 1.799 |
+| MuRIL (google/muril-base-cased) | Text Only (Transformer) | 40.93 | 40.75 | 40.76 | 41.48 | 41.04 | 39.95 | 43.05 | 39.25 | 46.15 | 39.39 | 38.9 | 267.43 | 1.578 |
+| TF-IDF + Random Forest | Text Only (Hinglish OCR) | 44.0 | 40.75 | 42.73 | 40.98 | 42.52 | 33.65 | 53.26 | 35.36 | 30.2 | 63.3 | 29.45 | 0.7 | 0.063 |
+| MuRIL + ResNet-50 (Gated Fusion) | Multimodal (Text + Image) | 37.64 | 37.24 | 38.08 | 38.6 | 37.59 | 37.83 | 41.15 | 32.75 | 49.57 | 37.21 | 29.01 | 198.66 | 5.961 |
+| TF-IDF + Multinomial Naive Bayes | Text Only (Hinglish OCR) | 42.86 | 37.06 | 40.71 | 38.25 | 39.73 | 24.24 | 54.4 | 32.53 | 18.23 | 69.7 | 26.81 | 0.27 | 0.028 |
+| ResNet-50 | Image Only (Vision) | 40.43 | 37.04 | 38.79 | 37.7 | 38.88 | 30.64 | 50.75 | 29.73 | 30.2 | 59.6 | 23.3 | 225.29 | 4.511 |
+| EfficientNet-B0 | Image Only (Vision) | 37.5 | 36.54 | 36.54 | 36.73 | 37.64 | 32.24 | 44.43 | 32.95 | 35.04 | 43.27 | 31.87 | 197.02 | 3.582 |
+| MobileNetV3-Large | Image Only (Vision) | 38.21 | 36.25 | 36.62 | 36.6 | 37.74 | 25.08 | 42.89 | 40.78 | 21.94 | 41.92 | 45.93 | 168.9 | 3.359 |
+| MuRIL + EfficientNet-B0 (Concat Fusion) | Multimodal (Text + Image) | 36.0 | 35.43 | 35.51 | 35.66 | 36.25 | 30.99 | 40.44 | 34.85 | 33.33 | 37.37 | 36.26 | 187.5 | 5.271 |
+| MuRIL + ResNet-50 (Concat Fusion) | Multimodal (Text + Image) | 37.57 | 35.14 | 38.41 | 38.06 | 35.75 | 39.18 | 44.33 | 21.9 | 54.13 | 45.12 | 14.95 | 250.22 | 6.384 |
+| XLM-RoBERTa + ResNet-50 (Concat Fusion) | Multimodal (Text + Image) | 31.43 | 30.0 | 35.5 | 36.01 | 28.51 | 38.88 | 21.61 | 29.51 | 68.95 | 14.48 | 24.62 | 211.06 | 6.044 |
+| TF-IDF + Linear SVM | Text Only (Hinglish OCR) | 43.57 | 27.97 | 49.4 | 35.63 | 32.58 | 6.97 | 58.63 | 18.31 | 3.7 | 91.75 | 11.43 | 0.4 | 0.029 |
+| Majority Baseline | Text Only (Hinglish OCR) | 42.43 | 19.86 | 14.14 | 33.33 | 25.28 | 0.0 | 59.58 | 0.0 | 0.0 | 100.0 | 0.0 | 0.3 | 0.03 |
+
+---
+
+## 2. Category Champions
+
+- **Best Text-Only Model:** TF-IDF + Logistic Regression (**43.14% Macro-F1**, 43.79% Acc) | Neural Text: XLM-RoBERTa (**41.66% Macro-F1**, 42.36% Acc)
+- **Best Image-Only Model:** ResNet-50 (**37.04% Macro-F1**, 40.43% Acc)
+- **Best Multimodal Model:** MuRIL + ResNet-50 Gated Fusion (**37.24% Macro-F1**, 37.64% Acc)
+- **Most Computationally Efficient Model:** TF-IDF + Logistic Regression (0.025 ms latency)
+- **Most Balanced Deep Model:** MuRIL (Negative Recall: 46.15%, Neutral Recall: 39.39%, Positive Recall: 38.90%)
