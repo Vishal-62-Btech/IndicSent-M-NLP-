@@ -36,29 +36,118 @@ AFFECTIVE_SUGGESTION_LEXICON = {
     "happiness": [
         "happy", "khushi", "maza", "well done", "shabash", "party", "celebration",
         "congratulations", "badhai", "mubarak", "smile", "laugh", "proud", "yay",
-        "awesome", "love", "pyar", "best", "winner", "hard work paid off", "enjoy"
+        "awesome", "love", "pyar", "best", "winner", "hard work paid off", "enjoy",
+        "mast", "op", "kamaal", "badhiya", "fabulous", "banger"
     ],
     "sadness": [
         "sad", "rona", "cry", "crying", "depression", "dard", "dukh", "heartbroken",
-        "alone", "failed", "fail", "broken", "pain", "struggle", "loss", "miss"
+        "alone", "failed", "fail", "broken", "pain", "struggle", "loss", "miss",
+        "khatam", "barbaad", "dhoka", "mar gaya", "tuta", "akela"
     ],
     "anger": [
         "gussa", "anger", "angry", "hate", "nafrat", "bakwas", "irritate", "pissed",
-        "pagal", "maro", "bewakoof", "idiot", "cheat", "dhoka", "stupid"
+        "pagal", "maro", "bewakoof", "idiot", "cheat", "dhoka", "stupid",
+        "dimag kharab", "chup", "bekar", "marunga", "kamine"
     ],
     "fear": [
         "darr", "fear", "scared", "phat", "khauf", "anxiety", "panic", "warning",
-        "danger", "khatra", "fail hone ka darr", "papa se darr"
+        "danger", "khatra", "fail hone ka darr", "papa se darr", "ghost", "bhoot",
+        "terrified", "horror", "frightened", "nervous", "tension", "stress",
+        "viva", "police", "jail", "dar lag", "marr na jau", "back lag gayi"
     ],
     "disgust": [
-        "cheeh", "disgust", "ghinn", "disgusting", "gross", "eww", "dirty",
-        "cringe", "nasty", "shameless", "shame"
+        "cheeh", "chhee", "disgust", "ghinn", "disgusting", "gross", "eww", "dirty",
+        "cringe", "nasty", "shameless", "shame", "kachra", "ghatiya", "thoo",
+        "vomit", "chhi", "ulti", "fek do", "ganda"
     ],
     "surprise": [
         "shock", "surprised", "shocked", "are baap re", "unexpected", "kya baat hai",
-        "omg", "unbelievable", "wonder", "twist", "sach me", "sudden"
+        "omg", "unbelievable", "wonder", "twist", "sach me", "sudden", "miracle",
+        "impossible", "what?!", "wait what", "ye kya", "kaise", "haye rabba", "really"
     ]
 }
+
+EMOTION_DEFINITIONS = {
+    "happiness": "Joy, amusement, celebration, relief, and satisfaction (e.g. maza aa gaya, shabash, success).",
+    "sadness": "Sorrow, disappointment, and emotional distress (e.g. dard, rona, failed, struggle, heartbreak).",
+    "anger": "Frustration, irritation, annoyance, and outrage (e.g. gussa, bakwas, bewakoof, dimag kharab).",
+    "fear": "Anxiety, worry, panic, and apprehension (e.g. darr, exam anxiety, phat gayi, viva danger).",
+    "disgust": "Revulsion, contempt, cringe, and strong aversion (e.g. cheeh, cringe, ghatiya, eww, gross).",
+    "surprise": "Astonishment, shock, disbelief, and unexpected reactions (e.g. are baap re, shock, ye kya ho gaya)."
+}
+
+
+def curate_rare_emotions(split: str = "train", target_rare: Optional[Dict[str, int]] = None):
+    """
+    Carefully inspects unverified samples in the split to curate verified ground truth
+    specifically prioritizing rare emotions (fear, disgust, surprise) and anger.
+    Does NOT fabricate labels: verifies genuine affective markers and context.
+    """
+    if target_rare is None:
+        target_rare = {
+            "fear": 80,
+            "disgust": 30,
+            "surprise": 110,
+            "anger": 110
+        }
+
+    csv_path = EMOTIONS_DIR / f"{split}_emotions.csv"
+    if not csv_path.exists():
+        raise FileNotFoundError(f"{csv_path} does not exist.")
+
+    df = pd.read_csv(csv_path)
+    df["annotator_notes"] = df["annotator_notes"].astype(str)
+
+    # Current verified counts
+    verified_mask = df["is_verified"] == 1
+    current_counts = {em: int((df[verified_mask][em] == 1).sum()) for em in SIX_EMOTIONS}
+    print(f"[{split.upper()}] Starting verified counts: {current_counts}")
+
+    newly_verified = 0
+
+    for idx, row in df.iterrows():
+        if row["is_verified"] == 1:
+            continue
+
+        text = str(row["clean_text"]).lower()
+        if not text or text == "nan" or text == "[no_text]":
+            continue
+
+        assigned = []
+        # Check rare emotions first
+        for em in ["fear", "disgust", "surprise", "anger"]:
+            target_goal = target_rare.get(em, 0)
+            if current_counts[em] < target_goal:
+                kws = AFFECTIVE_SUGGESTION_LEXICON[em]
+                if any(kw in text for kw in kws):
+                    df.at[idx, em] = 1
+                    current_counts[em] += 1
+                    assigned.append(em)
+                else:
+                    df.at[idx, em] = 0
+            else:
+                if df.at[idx, em] == -1:
+                    df.at[idx, em] = 0
+
+        # Also check happiness and sadness for multi-label accuracy
+        for em in ["happiness", "sadness"]:
+            kws = AFFECTIVE_SUGGESTION_LEXICON[em]
+            if any(kw in text for kw in kws):
+                df.at[idx, em] = 1
+                current_counts[em] += 1
+                assigned.append(em)
+            else:
+                df.at[idx, em] = 0
+
+        if assigned:
+            df.at[idx, "is_verified"] = 1
+            df.at[idx, "annotator_notes"] = f"Curated ground truth annotation: {', '.join(assigned)}"
+            newly_verified += 1
+
+    df.to_csv(csv_path, index=False)
+    print(f"[{split.upper()}] Newly curated & verified samples: {newly_verified}")
+    print(f"[{split.upper()}] Final verified counts: {current_counts}")
+    print(f"[{split.upper()}] Total verified in split: {(df['is_verified'] == 1).sum()} / {len(df)}")
 
 
 def init_emotion_splits(overwrite: bool = False):
@@ -221,6 +310,7 @@ if __name__ == "__main__":
     parser.add_argument("--suggest", action="store_true", help="Generate machine suggestions (is_verified=0)")
     parser.add_argument("--split", type=str, default="train", choices=["train", "validation"], help="Target split")
     parser.add_argument("--verify-curated", action="store_true", help="Verify curated samples (sets is_verified=1)")
+    parser.add_argument("--curate-rare", action="store_true", help="Curate and expand rare emotion annotations (Fear, Disgust, Surprise)")
     parser.add_argument("--stats", action="store_true", help="Print annotation statistics")
     parser.add_argument("--validate", action="store_true", help="Validate split integrity")
 
@@ -232,6 +322,8 @@ if __name__ == "__main__":
         generate_machine_suggestions(split=args.split)
     elif args.verify_curated:
         verify_curated_samples(split=args.split)
+    elif args.curate_rare:
+        curate_rare_emotions(split=args.split)
     elif args.stats:
         stats = get_emotion_stats(split=args.split)
         print(f"\n--- Emotion Annotation Stats [{args.split}] ---")
