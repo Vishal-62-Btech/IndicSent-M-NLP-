@@ -268,7 +268,11 @@ class IndicSentPredictor:
             elif "muril_efficient" in sub_model:
                 ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "muril_efficientnet" / "best_model.pt"
             elif "multitask" in sub_model or "emotion" in sub_model:
-                ckpt_path = CHECKPOINTS_ROOT / "multitask_emotion" / "best_model.pt"
+                final_prod_ckpt = CHECKPOINTS_ROOT / "final_production" / "best_model.pt"
+                if final_prod_ckpt.is_file():
+                    ckpt_path = final_prod_ckpt
+                else:
+                    ckpt_path = CHECKPOINTS_ROOT / "multitask_emotion" / "best_model.pt"
                 self.display_name = "MuRIL + ResNet-50 (Multi-Task Sentiment & Emotion Fusion)"
             elif "xlm" in sub_model:
                 ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "xlm_resnet50" / "best_model.pt"
@@ -286,7 +290,7 @@ class IndicSentPredictor:
         xlm_dir = str(CHECKPOINTS_ROOT / "xlm_roberta")
 
         # Instantiate appropriate architecture
-        if "multitask" in sub_model or "multitask_emotion" in str(ckpt_path):
+        if "multitask" in sub_model or "multitask_emotion" in str(ckpt_path) or "final_production" in str(ckpt_path):
             self.tokenizer = AutoTokenizer.from_pretrained(muril_dir, local_files_only=True)
             self.transform = get_image_transforms("resnet50", is_training=False)
             self.model = MultiTaskGatedMultimodalClassifier(

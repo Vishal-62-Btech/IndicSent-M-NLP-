@@ -215,16 +215,28 @@ def train_multitask(
     batch_size: int = 16,
     lr: float = 1e-4,
     lambda_emotion: float = 1.0,
-    patience: int = 2
+    patience: int = 2,
+    exp_name: str = "multitask_emotion",
+    seed: int = 42
 ):
+    # Set seed for exact reproducibility across experiments
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
     print("=" * 75)
-    print("IndicSent-M: Multi-Task Sentiment & Six-Emotion Training Experiment")
-    print(f"Device: {device} | Epochs: {epochs} | Batch Size: {batch_size} | Lambda Emotion: {lambda_emotion}")
+    print(f"IndicSent-M: Multi-Task Training Experiment [{exp_name}]")
+    print(f"Device: {device} | Epochs: {epochs} | Batch Size: {batch_size} | Lambda Emotion: {lambda_emotion} | Seed: {seed}")
     print("=" * 75)
 
     splits_dir = PROJECT_ROOT / "model_training" / "data_splits"
     emotions_dir = splits_dir / "emotions"
-    checkpoint_dir = PROJECT_ROOT / "model_training" / "checkpoints" / "multitask_emotion"
+    
+    if exp_name == "multitask_emotion":
+        checkpoint_dir = PROJECT_ROOT / "model_training" / "checkpoints" / "multitask_emotion"
+    else:
+        checkpoint_dir = PROJECT_ROOT / "model_training" / "checkpoints" / "experiments" / exp_name
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. Load Data
@@ -452,11 +464,17 @@ if __name__ == "__main__":
     parser.add_argument("--batch-size", type=int, default=16, help="Batch size")
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--lambda-emotion", type=float, default=1.0, help="Weight for emotion loss")
+    parser.add_argument("--exp-name", type=str, default="multitask_emotion", help="Experiment name for checkpoint directory")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--patience", type=int, default=2, help="Early stopping patience")
     args = parser.parse_args()
 
     train_multitask(
         epochs=args.epochs,
         batch_size=args.batch_size,
         lr=args.lr,
-        lambda_emotion=args.lambda_emotion
+        lambda_emotion=args.lambda_emotion,
+        patience=args.patience,
+        exp_name=args.exp_name,
+        seed=args.seed
     )

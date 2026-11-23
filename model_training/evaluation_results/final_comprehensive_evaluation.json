@@ -1,0 +1,634 @@
+{
+  "baselines": {
+    "sentiment_baselines": {
+      "majority_class": {
+        "class_name": "Neutral",
+        "accuracy": 42.43,
+        "macro_f1": 19.86,
+        "weighted_f1": 25.28
+      },
+      "random_chance": {
+        "accuracy": 31.36,
+        "macro_f1": 31.03
+      }
+    },
+    "emotion_baselines": {
+      "all_negative_baseline": {
+        "description": "Predicts 0 for all 6 emotions for all samples",
+        "hamming_loss": 0.1812,
+        "macro_f1": 0.0,
+        "micro_f1": 0.0,
+        "exact_match_ratio": 0.0,
+        "utility_explanation": "Achieves lowest mathematical Hamming Loss (0.1812) purely because 81.88% of label bits in the benchmark are negative (inactive). However, it produces F1=0.0% and zero useful emotion predictions."
+      },
+      "majority_label_baseline": {
+        "hamming_loss": 0.1812,
+        "macro_f1": 0.0,
+        "micro_f1": 0.0
+      },
+      "majority_dominant_emotion_baseline": {
+        "most_frequent_emotion": "Happiness",
+        "accuracy": 39.57
+      },
+      "random_dominant_emotion_baseline": {
+        "accuracy": 24.35,
+        "theoretical": 16.67
+      }
+    }
+  },
+  "models": {
+    "SingleTask_GatedFusion_Champion": {
+      "type": "single_task",
+      "description": "Baseline champion single-task Gated Fusion (MuRIL + ResNet-50)",
+      "path": "D:\\projectsss\\NLP project (sentiment analysis)\\model_training\\checkpoints\\multimodal\\gated_fusion\\best_model.pt",
+      "sentiment": {
+        "accuracy": 37.71,
+        "macro_f1": 37.31,
+        "weighted_f1": 37.67,
+        "confusion_matrix": [
+          [
+            174,
+            103,
+            74
+          ],
+          [
+            226,
+            222,
+            146
+          ],
+          [
+            168,
+            155,
+            132
+          ]
+        ],
+        "per_class_f1": {
+          "Negative": 37.87,
+          "Neutral": 41.34,
+          "Positive": 32.71
+        }
+      }
+    },
+    "MultiTask_Baseline_Initial": {
+      "type": "multi_task",
+      "description": "Initial multi-task baseline (500 train annotations, lambda=1.0)",
+      "path": "D:\\projectsss\\NLP project (sentiment analysis)\\model_training\\checkpoints\\multitask_emotion\\best_model.pt",
+      "sentiment": {
+        "accuracy": 37.07,
+        "macro_f1": 35.43,
+        "weighted_f1": 36.16,
+        "confusion_matrix": [
+          [
+            172,
+            128,
+            51
+          ],
+          [
+            235,
+            260,
+            99
+          ],
+          [
+            169,
+            199,
+            87
+          ]
+        ],
+        "per_class_f1": {
+          "Negative": 37.11,
+          "Neutral": 44.03,
+          "Positive": 25.14
+        }
+      },
+      "emotion_default_threshold_0_5": {
+        "verified_samples": 230,
+        "macro_f1": 19.12,
+        "micro_f1": 46.91,
+        "weighted_f1": 39.03,
+        "hamming_loss": 0.2428,
+        "exact_match_ratio": 17.39,
+        "dominant_emotion_accuracy": 42.61,
+        "per_emotion": {
+          "Happiness": {
+            "f1": 56.51,
+            "precision": 39.73,
+            "recall": 97.8,
+            "support": 91
+          },
+          "Sadness": {
+            "f1": 47.66,
+            "precision": 37.58,
+            "recall": 65.12,
+            "support": 86
+          },
+          "Anger": {
+            "f1": 10.53,
+            "precision": 37.5,
+            "recall": 6.12,
+            "support": 49
+          },
+          "Fear": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 11
+          },
+          "Disgust": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 2
+          },
+          "Surprise": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 11
+          }
+        }
+      }
+    },
+    "MultiTask_E0_lambda1_0": {
+      "type": "multi_task",
+      "description": "Experiment E0: 1,564 train annotations, lambda_emotion=1.0",
+      "path": "D:\\projectsss\\NLP project (sentiment analysis)\\model_training\\checkpoints\\experiments\\e0_lambda1_0\\best_model.pt",
+      "sentiment": {
+        "accuracy": 35.79,
+        "macro_f1": 35.34,
+        "weighted_f1": 35.57,
+        "confusion_matrix": [
+          [
+            179,
+            95,
+            77
+          ],
+          [
+            257,
+            204,
+            133
+          ],
+          [
+            181,
+            156,
+            118
+          ]
+        ],
+        "per_class_f1": {
+          "Negative": 36.98,
+          "Neutral": 38.89,
+          "Positive": 30.14
+        }
+      },
+      "emotion_default_threshold_0_5": {
+        "verified_samples": 230,
+        "macro_f1": 22.51,
+        "micro_f1": 45.21,
+        "weighted_f1": 39.91,
+        "hamming_loss": 0.2529,
+        "exact_match_ratio": 16.52,
+        "dominant_emotion_accuracy": 40.0,
+        "per_emotion": {
+          "Happiness": {
+            "f1": 56.29,
+            "precision": 40.28,
+            "recall": 93.41,
+            "support": 91
+          },
+          "Sadness": {
+            "f1": 47.93,
+            "precision": 39.69,
+            "recall": 60.47,
+            "support": 86
+          },
+          "Anger": {
+            "f1": 10.34,
+            "precision": 33.33,
+            "recall": 6.12,
+            "support": 49
+          },
+          "Fear": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 11
+          },
+          "Disgust": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 2
+          },
+          "Surprise": {
+            "f1": 20.51,
+            "precision": 14.29,
+            "recall": 36.36,
+            "support": 11
+          }
+        }
+      }
+    },
+    "MultiTask_E1_lambda0_5": {
+      "type": "multi_task",
+      "description": "Experiment E1: 1,564 train annotations, lambda_emotion=0.5",
+      "path": "D:\\projectsss\\NLP project (sentiment analysis)\\model_training\\checkpoints\\experiments\\e1_lambda0_5\\best_model.pt",
+      "sentiment": {
+        "accuracy": 35.5,
+        "macro_f1": 35.47,
+        "weighted_f1": 35.33,
+        "confusion_matrix": [
+          [
+            180,
+            74,
+            97
+          ],
+          [
+            269,
+            166,
+            159
+          ],
+          [
+            185,
+            119,
+            151
+          ]
+        ],
+        "per_class_f1": {
+          "Negative": 36.55,
+          "Neutral": 34.84,
+          "Positive": 35.03
+        }
+      },
+      "emotion_default_threshold_0_5": {
+        "verified_samples": 230,
+        "macro_f1": 22.62,
+        "micro_f1": 44.09,
+        "weighted_f1": 40.51,
+        "hamming_loss": 0.2775,
+        "exact_match_ratio": 12.61,
+        "dominant_emotion_accuracy": 40.0,
+        "per_emotion": {
+          "Happiness": {
+            "f1": 56.27,
+            "precision": 40.69,
+            "recall": 91.21,
+            "support": 91
+          },
+          "Sadness": {
+            "f1": 48.78,
+            "precision": 37.5,
+            "recall": 69.77,
+            "support": 86
+          },
+          "Anger": {
+            "f1": 12.5,
+            "precision": 26.67,
+            "recall": 8.16,
+            "support": 49
+          },
+          "Fear": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 11
+          },
+          "Disgust": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 2
+          },
+          "Surprise": {
+            "f1": 18.18,
+            "precision": 12.12,
+            "recall": 36.36,
+            "support": 11
+          }
+        }
+      }
+    },
+    "MultiTask_E2_lambda0_25": {
+      "type": "multi_task",
+      "description": "Experiment E2: 1,564 train annotations, lambda_emotion=0.25",
+      "path": "D:\\projectsss\\NLP project (sentiment analysis)\\model_training\\checkpoints\\experiments\\e2_lambda0_25\\best_model.pt",
+      "sentiment": {
+        "accuracy": 33.36,
+        "macro_f1": 33.09,
+        "weighted_f1": 32.66,
+        "confusion_matrix": [
+          [
+            196,
+            72,
+            83
+          ],
+          [
+            302,
+            145,
+            147
+          ],
+          [
+            219,
+            110,
+            126
+          ]
+        ],
+        "per_class_f1": {
+          "Negative": 36.7,
+          "Neutral": 31.49,
+          "Positive": 31.07
+        }
+      },
+      "emotion_default_threshold_0_5": {
+        "verified_samples": 230,
+        "macro_f1": 21.56,
+        "micro_f1": 35.28,
+        "weighted_f1": 37.53,
+        "hamming_loss": 0.3217,
+        "exact_match_ratio": 10.43,
+        "dominant_emotion_accuracy": 26.09,
+        "per_emotion": {
+          "Happiness": {
+            "f1": 50.42,
+            "precision": 40.82,
+            "recall": 65.93,
+            "support": 91
+          },
+          "Sadness": {
+            "f1": 43.12,
+            "precision": 35.61,
+            "recall": 54.65,
+            "support": 86
+          },
+          "Anger": {
+            "f1": 18.18,
+            "precision": 20.51,
+            "recall": 16.33,
+            "support": 49
+          },
+          "Fear": {
+            "f1": 3.57,
+            "precision": 2.22,
+            "recall": 9.09,
+            "support": 11
+          },
+          "Disgust": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 2
+          },
+          "Surprise": {
+            "f1": 14.08,
+            "precision": 8.33,
+            "recall": 45.45,
+            "support": 11
+          }
+        }
+      }
+    }
+  },
+  "threshold_calibration": {
+    "MultiTask_E0_lambda1_0": {
+      "calibrated_thresholds": {
+        "Happiness": 0.475,
+        "Sadness": 0.5,
+        "Anger": 0.425,
+        "Fear": 0.5,
+        "Disgust": 0.375,
+        "Surprise": 0.475
+      },
+      "train_search_results": {
+        "Happiness": {
+          "optimal_threshold": 0.475,
+          "train_f1": 78.64
+        },
+        "Sadness": {
+          "optimal_threshold": 0.5,
+          "train_f1": 46.06
+        },
+        "Anger": {
+          "optimal_threshold": 0.425,
+          "train_f1": 38.24
+        },
+        "Fear": {
+          "optimal_threshold": 0.5,
+          "train_f1": 45.6
+        },
+        "Disgust": {
+          "optimal_threshold": 0.375,
+          "train_f1": 36.92
+        },
+        "Surprise": {
+          "optimal_threshold": 0.475,
+          "train_f1": 39.88
+        }
+      },
+      "validation_calibrated_metrics": {
+        "macro_f1": 23.08,
+        "micro_f1": 44.38,
+        "weighted_f1": 41.13,
+        "hamming_loss": 0.2761,
+        "exact_match_ratio": 13.48,
+        "per_emotion": {
+          "Happiness": {
+            "threshold": 0.475,
+            "f1": 56.15,
+            "precision": 39.38,
+            "recall": 97.8
+          },
+          "Sadness": {
+            "threshold": 0.5,
+            "f1": 47.93,
+            "precision": 39.69,
+            "recall": 60.47
+          },
+          "Anger": {
+            "threshold": 0.425,
+            "f1": 17.72,
+            "precision": 23.33,
+            "recall": 14.29
+          },
+          "Fear": {
+            "threshold": 0.5,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Disgust": {
+            "threshold": 0.375,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Surprise": {
+            "threshold": 0.475,
+            "f1": 16.67,
+            "precision": 10.81,
+            "recall": 36.36
+          }
+        }
+      }
+    },
+    "MultiTask_E1_lambda0_5": {
+      "calibrated_thresholds": {
+        "Happiness": 0.475,
+        "Sadness": 0.55,
+        "Anger": 0.475,
+        "Fear": 0.55,
+        "Disgust": 0.5,
+        "Surprise": 0.5
+      },
+      "train_search_results": {
+        "Happiness": {
+          "optimal_threshold": 0.475,
+          "train_f1": 78.46
+        },
+        "Sadness": {
+          "optimal_threshold": 0.55,
+          "train_f1": 44.88
+        },
+        "Anger": {
+          "optimal_threshold": 0.475,
+          "train_f1": 38.02
+        },
+        "Fear": {
+          "optimal_threshold": 0.55,
+          "train_f1": 44.83
+        },
+        "Disgust": {
+          "optimal_threshold": 0.5,
+          "train_f1": 34.92
+        },
+        "Surprise": {
+          "optimal_threshold": 0.5,
+          "train_f1": 38.55
+        }
+      },
+      "validation_calibrated_metrics": {
+        "macro_f1": 22.02,
+        "micro_f1": 42.17,
+        "weighted_f1": 38.39,
+        "hamming_loss": 0.2623,
+        "exact_match_ratio": 16.52,
+        "per_emotion": {
+          "Happiness": {
+            "threshold": 0.475,
+            "f1": 56.23,
+            "precision": 39.64,
+            "recall": 96.7
+          },
+          "Sadness": {
+            "threshold": 0.55,
+            "f1": 39.29,
+            "precision": 40.24,
+            "recall": 38.37
+          },
+          "Anger": {
+            "threshold": 0.475,
+            "f1": 18.42,
+            "precision": 25.93,
+            "recall": 14.29
+          },
+          "Fear": {
+            "threshold": 0.55,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Disgust": {
+            "threshold": 0.5,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Surprise": {
+            "threshold": 0.5,
+            "f1": 18.18,
+            "precision": 12.12,
+            "recall": 36.36
+          }
+        }
+      }
+    },
+    "MultiTask_E2_lambda0_25": {
+      "calibrated_thresholds": {
+        "Happiness": 0.15,
+        "Sadness": 0.525,
+        "Anger": 0.5,
+        "Fear": 0.6,
+        "Disgust": 0.6,
+        "Surprise": 0.525
+      },
+      "train_search_results": {
+        "Happiness": {
+          "optimal_threshold": 0.15,
+          "train_f1": 78.43
+        },
+        "Sadness": {
+          "optimal_threshold": 0.525,
+          "train_f1": 42.33
+        },
+        "Anger": {
+          "optimal_threshold": 0.5,
+          "train_f1": 34.61
+        },
+        "Fear": {
+          "optimal_threshold": 0.6,
+          "train_f1": 37.84
+        },
+        "Disgust": {
+          "optimal_threshold": 0.6,
+          "train_f1": 34.21
+        },
+        "Surprise": {
+          "optimal_threshold": 0.525,
+          "train_f1": 33.42
+        }
+      },
+      "validation_calibrated_metrics": {
+        "macro_f1": 20.91,
+        "micro_f1": 40.49,
+        "weighted_f1": 37.08,
+        "hamming_loss": 0.2833,
+        "exact_match_ratio": 13.91,
+        "per_emotion": {
+          "Happiness": {
+            "threshold": 0.15,
+            "f1": 56.7,
+            "precision": 39.57,
+            "recall": 100.0
+          },
+          "Sadness": {
+            "threshold": 0.525,
+            "f1": 35.5,
+            "precision": 36.14,
+            "recall": 34.88
+          },
+          "Anger": {
+            "threshold": 0.5,
+            "f1": 18.18,
+            "precision": 20.51,
+            "recall": 16.33
+          },
+          "Fear": {
+            "threshold": 0.6,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Disgust": {
+            "threshold": 0.6,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "Surprise": {
+            "threshold": 0.525,
+            "f1": 15.09,
+            "precision": 9.52,
+            "recall": 36.36
+          }
+        }
+      }
+    }
+  }
+}
