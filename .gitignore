@@ -1,3 +1,4 @@
+
 # Python
 __pycache__/
 *.py[cod]
@@ -33,16 +34,26 @@ dist-ssr/
 
 # Environment & Secrets
 .env
+.env.*
 !.env.example
 
-# Large Model Checkpoints & Datasets (tracked via inventory and hashes)
+# Large Model Checkpoints & Weights
 *.pt
 *.pth
 *.joblib
 *.bin
 *.safetensors
-dataset/
 model_training/checkpoints/
+model_training/easyocr_models/
+
+# Datasets
+dataset/
+
+# Temporary Dataset Backups
+*.bak
+*.pre_case4_bak
+*.pre_rendered_bak
+*.pre_calib_backup
 
 # IDE & OS
 .vscode/*

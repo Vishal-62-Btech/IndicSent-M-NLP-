@@ -41,7 +41,7 @@ class Settings:
     }
 
     # Model defaults
-    DEFAULT_MULTIMODAL_MODEL: str = "gated_fusion"
+    DEFAULT_MULTIMODAL_MODEL: str = "multitask_emotion"
     DEFAULT_TEXT_MODEL: str = "logistic_regression"
     DEFAULT_CLASSICAL_MODEL: str = "logistic_regression"
     DEFAULT_IMAGE_MODEL: str = "resnet50"

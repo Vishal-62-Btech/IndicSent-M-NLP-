@@ -55,19 +55,41 @@ def test_multitask_emotion_prediction_structure(client, valid_image_bytes):
     assert abs(em["dominant_probability"] - probs[max_emotion]) < 1e-2
 
 
-def test_backward_compatibility_text_only_emotion_unavailable(client):
-    """Text-only prediction must return is_available=False for emotion block."""
+def test_text_only_emotion_prediction_structure(client):
+    """Text-only prediction must return valid emotion block with is_available=True."""
     response = client.post(
         "/api/predict/text",
-        json={"text": "Exam stress bohot zyada hai life me", "model": "logistic_regression"}
+        json={"text": "Exam stress bohot zyada hai life me, syllabus complete nahi ho raha 😭", "model": "logistic_regression"}
     )
     assert response.status_code == 200
     data = response.json()
     pred = data["prediction"]
     assert "emotion" in pred
-    assert pred["emotion"]["is_available"] is False
-    assert pred["emotion"]["dominant_emotion"] is None
-    assert pred["emotion"]["probabilities"] is None
+    assert pred["emotion"]["is_available"] is True
+    assert pred["emotion"]["dominant_emotion"] in SIX_EMOTIONS
+    assert pred["emotion"]["dominant_probability"] >= 0.0
+    assert pred["emotion"]["probabilities"] is not None
+    for em in SIX_EMOTIONS:
+        assert em in pred["emotion"]["probabilities"]
+
+
+def test_image_only_emotion_prediction_structure(client, valid_image_bytes):
+    """Image-only prediction must return valid emotion block with is_available=True."""
+    response = client.post(
+        "/api/predict/image",
+        data={"model": "resnet50"},
+        files={"file": ("test.jpg", valid_image_bytes, "image/jpeg")}
+    )
+    assert response.status_code == 200
+    data = response.json()
+    pred = data["prediction"]
+    assert "emotion" in pred
+    assert pred["emotion"]["is_available"] is True
+    assert pred["emotion"]["dominant_emotion"] in SIX_EMOTIONS
+    assert pred["emotion"]["dominant_probability"] >= 0.0
+    assert pred["emotion"]["probabilities"] is not None
+    for em in SIX_EMOTIONS:
+        assert em in pred["emotion"]["probabilities"]
 
 
 def test_backward_compatibility_baseline_gated_fusion_emotion_unavailable(client, valid_image_bytes):

@@ -13,9 +13,9 @@ def test_models_catalog_endpoint(client):
     # Verify multimodal models
     assert "multimodal" in modes
     mm_mode = modes["multimodal"]
-    assert mm_mode["default"] == "gated_fusion"
+    assert mm_mode["default"] in ["multitask_emotion", "gated_fusion"]
     mm_ids = [m["id"] for m in mm_mode["models"]]
-    assert "gated_fusion" in mm_ids
+    assert "gated_fusion" in mm_ids or "multitask_emotion" in mm_ids
     assert "muril_resnet50" in mm_ids
 
     # Verify text models

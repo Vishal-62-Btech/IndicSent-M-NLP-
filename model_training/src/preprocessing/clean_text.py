@@ -47,12 +47,18 @@ EMOJI_SENTIMENT_MAP = {
 # Strict Hinglish negation structures (syntactic negation compounds)
 HIND_NEG_PHRASES = [
     (r'\bbina\s+(\w+)', r'bina_\1'),
+    (r'(\w+)\s+nahi\s+ho\s+raha\b', r'\1_nahi_ho_raha'),
+    (r'(\w+)\s+nhi\s+ho\s+raha\b', r'\1_nahi_ho_raha'),
     (r'(\w+)\s+nahi\s+hua\b', r'\1_nahi_hua'),
     (r'(\w+)\s+nhi\s+hua\b', r'\1_nahi_hua'),
     (r'(\w+)\s+nahi\s+hai\b', r'\1_nahi_hai'),
     (r'(\w+)\s+nhi\s+hai\b', r'\1_nahi_hai'),
     (r'(\w+)\s+nahi\s+gaya\b', r'\1_nahi_gaya'),
     (r'(\w+)\s+nhi\s+gaya\b', r'\1_nahi_gaya'),
+    (r'(\w+)\s+nahi\s+hota\b', r'\1_nahi_hota'),
+    (r'(\w+)\s+nhi\s+hota\b', r'\1_nahi_hota'),
+    (r'(\w+)\s+nahi\s+raha\b', r'\1_nahi_raha'),
+    (r'(\w+)\s+nhi\s+raha\b', r'\1_nahi_raha'),
     (r'\bnahi\s+(\w+)', r'nahi_\1'),
     (r'\bnhi\s+(\w+)', r'nahi_\1'),
     (r'\bmat\s+(\w+)', r'mat_\1')
@@ -64,7 +70,8 @@ HINGLISH_COMPOUND_PHRASES = [
     (r'\bwell\s+done\b', r'well_done'),
     (r'\bbadhai\s+ho\b', r'badhai_ho'),
     (r'\bmubarak\s+ho\b', r'mubarak_ho'),
-    (r'\bkya\s+baat\s+hai\b', r'kya_baat_hai')
+    (r'\bkya\s+baat\s+hai\b', r'kya_baat_hai'),
+    (r'\bgenuinely\s+enjoy\b', r'genuinely_enjoy')
 ]
 
 def clean_ocr_text(text: str, placeholder_for_empty: str = "[NO_TEXT]") -> str:

@@ -156,6 +156,8 @@ class ExplanationService:
 
         # Model forward
         logits = model(input_ids, attention_mask, img_tensor)
+        if isinstance(logits, tuple):
+            logits = logits[0]
         pred_class = logits.argmax(dim=-1).item()
         if target_sentiment and target_sentiment in LABEL_TO_ID:
             target_class = LABEL_TO_ID[target_sentiment]
@@ -475,6 +477,8 @@ class ExplanationService:
         h_bwd = target_layer.register_full_backward_hook(bwd_hook)
 
         logits = model(img_tensor)
+        if isinstance(logits, tuple):
+            logits = logits[0]
         pred_class = logits.argmax(dim=-1).item()
         target_class = LABEL_TO_ID.get(target_sentiment, pred_class)
         predicted_label = LABEL_MAP.get(target_class, "Neutral")

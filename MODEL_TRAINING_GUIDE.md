@@ -1,8 +1,8 @@
 # IndicSent-M: Model Training & Experimentation Guide
 =====================================================
 
-> **Complete Guide to Training, Fine-Tuning, and Multi-Task Optimization**  
-> *Target Architecture: MuRIL + ResNet-50 Gated Fusion Network*  
+> **Complete Guide to Training, Fine-Tuning, and Multi-Task Optimization**
+> *Target Architecture: MuRIL + ResNet-50 Gated Fusion Network*
 > *Tasks: 3-Class Sentiment Classification & 6-Class Multi-Label Emotion Detection*
 
 ---
@@ -119,3 +119,39 @@ Checkpoints will be saved automatically to:
 python model_training/src/evaluation/evaluate_all_final.py --batch-size 16
 ```
 Outputs complete JSON evaluation metrics to `model_training/evaluation_results/final_comprehensive_evaluation.json`.
+
+---
+
+## 5. Classical Text & Emotion Model Training
+
+### 5.1 Preprocessing and Idiom Compounds
+In `clean_text.py`, compound idioms and Hinglish patterns are bound before tokenization:
+```python
+POSITIVE_EMOTION_COMPOUNDS = [
+    (r'\bgenuinely\s+enjoy\b', 'genuinely_enjoy'),
+    (r'\bwell\s+done\b', 'well_done'),
+    (r'\bbina\s+kisi\s+error\b', 'bina_kisi_error'),
+    (r'\bpefli\s+baar\s+me\b', 'pehli_baar_me'),
+]
+```
+
+### 5.2 Structural Stopword Filtering
+To prevent structural pronouns and conjunctions from skewing negative in code-mixed meme corpora, non-sentiment words are explicitly filtered during TF-IDF vectorization:
+```python
+STRUCTURAL_STOPWORDS = [
+    'about', 'her', 'she', 'him', 'he', 'his', 'it', 'its',
+    'because', 'and', 'the', 'a', 'an'
+]
+```
+
+### 5.3 Retraining Commands
+```powershell
+# Retrain sentiment TF-IDF + Logistic Regression
+python -c "from training.train_classical import train_tfidf_lr; train_tfidf_lr(C=0.55, max_features=18000)"
+
+# Retrain 6 multi-label emotion heads
+python -c "from training.train_text_emotions import train_text_emotion_heads; train_text_emotion_heads()"
+```
+Checkpoints saved to:
+- `model_training/checkpoints/best_model/model.joblib`
+- `model_training/checkpoints/classical/tfidf_emotion_heads.joblib`

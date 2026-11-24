@@ -51,7 +51,12 @@ from models.multimodal_models import (
     SIX_EMOTIONS,
     EMOTION_EMOJIS
 )
-from models.image_models import ResNet50Classifier, EfficientNetB0Classifier, MobileNetV3LargeClassifier
+from models.image_models import (
+    ResNet50Classifier,
+    EfficientNetB0Classifier,
+    MobileNetV3LargeClassifier,
+    MultiTaskResNet50Classifier
+)
 from preprocessing.clean_text import clean_ocr_text
 from preprocessing.preprocess_images import get_image_transforms
 
@@ -191,6 +196,13 @@ class IndicSentPredictor:
         self.model_file = model_file
         self.checkpoint_path = model_file
 
+        # Load Text Emotion Heads if present
+        em_path = CHECKPOINTS_ROOT / "classical" / "tfidf_emotion_heads.joblib"
+        if em_path.is_file():
+            self.emotion_heads = joblib.load(em_path)
+        else:
+            self.emotion_heads = None
+
     def _init_transformer_text(self):
         """Loads Hugging Face sequence classification transformer model and tokenizer."""
         sub_model = (self.model_name or "xlm_roberta").lower()
@@ -214,6 +226,20 @@ class IndicSentPredictor:
         self.ckpt_dir = ckpt_dir
         self.checkpoint_path = ckpt_dir
 
+        # Load Text Emotion Heads for transformer text inference
+        em_path = CHECKPOINTS_ROOT / "classical" / "tfidf_emotion_heads.joblib"
+        if em_path.is_file():
+            self.emotion_heads = joblib.load(em_path)
+            base_model_file = CHECKPOINTS_ROOT / "classical" / "tf_idf_plus_logistic_regression.joblib"
+            if base_model_file.is_file():
+                base_pipe = joblib.load(base_model_file)
+                self.tfidf_vectorizer = base_pipe.named_steps["tfidf"]
+            else:
+                self.tfidf_vectorizer = None
+        else:
+            self.emotion_heads = None
+            self.tfidf_vectorizer = None
+
     def _init_image(self):
         """Loads vision classifier with pretrained=False to avoid ImageNet downloads."""
         sub_model = (self.model_name or "resnet50").lower()
@@ -235,6 +261,9 @@ class IndicSentPredictor:
         if not ckpt_path.is_file():
             raise FileNotFoundError(f"Image model checkpoint not found: {ckpt_path}")
 
+        state = torch.load(ckpt_path, map_location=self.device, weights_only=False)
+        state_dict = state["model_state_dict"] if "model_state_dict" in state else state
+
         if "efficient" in sub_model:
             self.model = EfficientNetB0Classifier(num_classes=3, pretrained=False)
             self.transform = get_image_transforms("efficientnet", is_training=False)
@@ -243,13 +272,16 @@ class IndicSentPredictor:
             self.model = MobileNetV3LargeClassifier(num_classes=3, pretrained=False)
             self.transform = get_image_transforms("resnet50", is_training=False)
             self.display_name = "MobileNet-V3 (Vision Classifier)"
+        elif any("emotion_classifier" in k for k in state_dict.keys()):
+            self.model = MultiTaskResNet50Classifier(num_classes=3, num_emotions=6, pretrained=False)
+            self.transform = get_image_transforms("resnet50", is_training=False)
+            self.display_name = "ResNet-50 (Multi-Task Vision & Emotion Classifier)"
         else:
             self.model = ResNet50Classifier(num_classes=3, pretrained=False)
             self.transform = get_image_transforms("resnet50", is_training=False)
             self.display_name = "ResNet-50 (Vision Classifier)"
 
-        state = torch.load(ckpt_path, map_location=self.device)
-        self.model.load_state_dict(state["model_state_dict"])
+        self.model.load_state_dict(state_dict)
         self.model.to(self.device)
         self.model.eval()
         self.ckpt_path = ckpt_path
@@ -263,20 +295,29 @@ class IndicSentPredictor:
             sub_model = ckpt_path.parent.name
         else:
             corr_mm = CHECKPOINTS_ROOT / "corrected_experiments" / "gated_fusion" / "best_model.pt"
+            final_prod_ckpt = CHECKPOINTS_ROOT / "final_production" / "best_model.pt"
             if "concat" in sub_model or "muril_resnet" in sub_model:
                 ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "muril_resnet50" / "best_model.pt"
             elif "muril_efficient" in sub_model:
                 ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "muril_efficientnet" / "best_model.pt"
-            elif "multitask" in sub_model or "emotion" in sub_model:
-                final_prod_ckpt = CHECKPOINTS_ROOT / "final_production" / "best_model.pt"
+            elif "baseline" in sub_model:
+                ckpt_path = corr_mm if corr_mm.is_file() else CHECKPOINTS_ROOT / "multimodal" / "gated_fusion" / "best_model.pt"
+                self.display_name = "MuRIL + ResNet-50 (Gated Fusion Baseline)"
+            elif "xlm" in sub_model:
+                ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "xlm_resnet50" / "best_model.pt"
+            elif "multitask" in sub_model or "emotion" in sub_model or "final" in sub_model:
                 if final_prod_ckpt.is_file():
                     ckpt_path = final_prod_ckpt
                 else:
                     ckpt_path = CHECKPOINTS_ROOT / "multitask_emotion" / "best_model.pt"
                 self.display_name = "MuRIL + ResNet-50 (Multi-Task Sentiment & Emotion Fusion)"
-            elif "xlm" in sub_model:
-                ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "xlm_resnet50" / "best_model.pt"
-            elif corr_mm.is_file() and ("gated" in sub_model or not sub_model):
+            elif "gated" in sub_model:
+                if corr_mm.is_file():
+                    ckpt_path = corr_mm
+                else:
+                    ckpt_path = CHECKPOINTS_ROOT / "multimodal" / "gated_fusion" / "best_model.pt"
+                self.display_name = "MuRIL + ResNet-50 (Corrected Gated Fusion)"
+            elif corr_mm.is_file():
                 ckpt_path = corr_mm
                 self.display_name = "MuRIL + ResNet-50 (Corrected Gated Fusion)"
             else:
@@ -347,7 +388,7 @@ class IndicSentPredictor:
             )
             self.display_name = "MuRIL + ResNet-50 (Concat Fusion)"
 
-        state = torch.load(ckpt_path, map_location=self.device)
+        state = torch.load(ckpt_path, map_location=self.device, weights_only=False)
         # If model checkpoint contains emotion classifier heads but model is not multi-task, upgrade architecture
         if any(k.startswith("emotion_classifier") for k in state["model_state_dict"].keys()) and not isinstance(self.model, MultiTaskGatedMultimodalClassifier):
             self.model = MultiTaskGatedMultimodalClassifier(
@@ -408,10 +449,22 @@ class IndicSentPredictor:
         t_exec_start = time.perf_counter()
         probs = self.model.predict_proba(input_list)[0]
         pred_class = int(np.argmax(probs))
+
+        em_probs = None
+        if hasattr(self, "emotion_heads") and self.emotion_heads is not None:
+            em_models = self.emotion_heads["emotion_models"]
+            em_names = ["happiness", "sadness", "anger", "fear", "disgust", "surprise"]
+            vec_model = self.emotion_heads.get("tfidf")
+            if vec_model is None and hasattr(self.model, "named_steps"):
+                vec_model = self.model.named_steps.get("tfidf") or self.model.named_steps.get("feats")
+            if vec_model is not None:
+                tfidf_vec = vec_model.transform([cleaned_text])
+                em_probs = np.array([em_models[em].predict_proba(tfidf_vec)[0, 1] for em in em_names])
+
         t_exec_end = time.perf_counter()
         exec_ms = (t_exec_end - t_exec_start) * 1000.0
 
-        return self._format_result(probs, pred_class, prep_ms, exec_ms)
+        return self._format_result(probs, pred_class, prep_ms, exec_ms, em_probs=em_probs)
 
     def _predict_transformer(self, text: Optional[str]) -> Dict[str, Any]:
         # Validation
@@ -440,12 +493,21 @@ class IndicSentPredictor:
             probs = F.softmax(logits, dim=-1).squeeze(0).cpu().numpy()
             pred_class = int(np.argmax(probs))
 
+        em_probs = None
+        if hasattr(self, "emotion_heads") and self.emotion_heads is not None:
+            em_models = self.emotion_heads["emotion_models"]
+            em_names = ["happiness", "sadness", "anger", "fear", "disgust", "surprise"]
+            vec_model = self.emotion_heads.get("tfidf") or getattr(self, "tfidf_vectorizer", None)
+            if vec_model is not None:
+                tfidf_vec = vec_model.transform([cleaned_text])
+                em_probs = np.array([em_models[em].predict_proba(tfidf_vec)[0, 1] for em in em_names])
+
         if self.device.type == "cuda":
             torch.cuda.synchronize(self.device)
         t_exec_end = time.perf_counter()
         exec_ms = (t_exec_end - t_exec_start) * 1000.0
 
-        return self._format_result(probs, pred_class, prep_ms, exec_ms)
+        return self._format_result(probs, pred_class, prep_ms, exec_ms, em_probs=em_probs)
 
     def _predict_image(self, image_path: Optional[Union[str, Path]]) -> Dict[str, Any]:
         # Validation
@@ -461,7 +523,13 @@ class IndicSentPredictor:
         t_exec_start = time.perf_counter()
 
         with torch.inference_mode():
-            logits = self.model(pixel_values)
+            out = self.model(pixel_values)
+            if isinstance(out, tuple) and len(out) == 2:
+                logits, emotion_logits = out
+                em_probs = torch.sigmoid(emotion_logits).squeeze(0).cpu().numpy()
+            else:
+                logits = out
+                em_probs = None
             probs = F.softmax(logits, dim=-1).squeeze(0).cpu().numpy()
             pred_class = int(np.argmax(probs))
 
@@ -470,7 +538,7 @@ class IndicSentPredictor:
         t_exec_end = time.perf_counter()
         exec_ms = (t_exec_end - t_exec_start) * 1000.0
 
-        return self._format_result(probs, pred_class, prep_ms, exec_ms)
+        return self._format_result(probs, pred_class, prep_ms, exec_ms, em_probs=em_probs)
 
     def _predict_multimodal(self, text: Optional[str], image_path: Optional[Union[str, Path]]) -> Dict[str, Any]:
         # Validation - BOTH modalities strictly required

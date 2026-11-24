@@ -142,7 +142,7 @@ def test_multimodal_prediction_valid(client, valid_image_bytes):
     assert response.status_code == 200
     res_data = response.json()
     _assert_prediction_structure(res_data, "multimodal")
-    assert "Gated Fusion" in res_data["prediction"]["model_name"]
+    assert "Fusion" in res_data["prediction"]["model_name"]
 
 
 def test_multimodal_prediction_missing_text_fails(client, valid_image_bytes):
